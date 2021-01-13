@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="333c8e66-b570-43d6-b0be-d80dd1850340" name="Default Changelist" comment="">
+    <list default="true" id="333c8e66-b570-43d6-b0be-d80dd1850340" name="Default Changelist" comment="ajout du fichier utils.inc.php">
+      <change afterPath="$PROJECT_DIR$/code/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/traitement.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.php" afterDir="false" />
     </list>
@@ -27,7 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../laragon/www/TP_2" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -38,8 +40,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610542882866</updated>
-      <workItem from="1610542909166" duration="1867000" />
+      <workItem from="1610542909166" duration="3730000" />
     </task>
+    <task id="LOCAL-00001" summary="ajout du fichier utils.inc.php">
+      <created>1610545277024</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1610545277024</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -55,5 +65,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ajout du fichier utils.inc.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout du fichier utils.inc.php" />
   </component>
 </project>
