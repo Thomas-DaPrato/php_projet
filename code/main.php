@@ -1,1 +1,2 @@
-<?php echo 'coucou' ?>
+<?php echo 'coucou, c\'est un test ?>
+
