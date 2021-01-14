@@ -1,23 +1,24 @@
 <?php require 'utils.inc.php';
 start_page('Login');?>
-<form action="traitement.php" method="post">
-    pseudo</br>
-    <input type="text" name="pseudo"/><br/>
-    mot de passe <br/>
-    <input type="password" name="mdp"/><br/>
 
-    <button type="submit" name="action" value="connexion">Connexion</button>
+<!-- Formulaire de connexion-->
+<form action="traitement.php" method="post">
+    <fieldset>
+        <h1 class="title_co">Se connecter</h1>
+        <input type="text" name="pseudo" placeholder='Pseudo'/><br>
+        <input type="password" name="mdp" placeholder='Mot de passe'/><br>
+        <button type="submit" name="action" value="connexion">Connexion</button>
+    </fieldset>
 </form>
-<br/>
-Toujours pas inscrit ? Inscrivez-vous !!
-<form action="traitement.php" method="post">
-    identifiant</br>
-    <input type="text" name="nom"/><br/>
-    email <br/>
-    <input type="email" name="email"><br/>
-    mot de passe <br/>
-    <input type="password" name="mdp"/><br/>
 
-    <button type="submit" name="action" value="inscription">Inscription</button>
+<!-- Formulaire d'inscription -->
+<form action="traitement.php" method="post">
+    <fieldset>
+        <h3>Toujours pas inscrit ? Inscrivez-vous !!</h3>//faire une redirection vers une page d'inscription ?<br>
+        <input type="text" name="pseudo" placeholder='Pseudo'/><br>
+        <input type="email" name="email" placeholder='Email'><br>
+        <input type="password" name="mdp" placeholder='Mot de passe'/><br>
+        <button type="submit" name="action" value="inscription">Inscription</button>
+    </fieldset>
 </form>
 <?php end_page();?>
