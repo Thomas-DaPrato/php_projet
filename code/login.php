@@ -1,5 +1,5 @@
 <?php require 'utils.inc.php';
-start_page('Connexion/Inscription');?>
+start_page('Login');?>
 
 <!-- Formulaire de connexion-->
 <form action="traitement.php" method="post">
