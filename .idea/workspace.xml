@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="333c8e66-b570-43d6-b0be-d80dd1850340" name="Default Changelist" comment="ajout du fichier utils.inc.php">
-      <change afterPath="$PROJECT_DIR$/code/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/traitement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/recherche_tag.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.php" afterDir="false" />
     </list>
@@ -65,6 +64,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ajout du fichier utils.inc.php" />
