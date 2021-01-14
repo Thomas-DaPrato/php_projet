@@ -5,7 +5,7 @@ start_page('VANESTARRE');
 ici ya tous les messages présent sur le réseau social
 
 <form action="recherche_tag.php" method="post">
-    <input type="text" name="rechercher_tag" placeholder="tag">
+    <input type="text" name="rechercher_tag" placeholder="tag" required>
     <button type="submit" name="recherche">Ok</button>
 </form>
 <?php end_page();?>
