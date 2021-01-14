@@ -1,6 +1,8 @@
 <?php
-$pseudo = $_POST['pseudo'];
-$email = $_POST['email'];
+$nom = $_POST['pseudo'];
+$email = '';
+if (isset($_POST['email']))
+    $email = $_POST['email'];
 $mdp = $_POST['mdp'];
 $action = $_POST['action'];
 $verificationmdp = $_POST['verificationmdp'];
