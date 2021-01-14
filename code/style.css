@@ -1,0 +1,10 @@
+body {
+    font-family: Arial;
+}
+
+.nav-bar {
+    height: 100px;
+    widht: 100%;
+    background-color: #000;
+}
+
