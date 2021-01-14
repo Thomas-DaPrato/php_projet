@@ -5,20 +5,21 @@ if (isset($_POST['email']))
     $email = $_POST['email'];
 $mdp = $_POST['mdp'];
 $action = $_POST['action'];
-$verificationmdp = $_POST['verificationmdp'];
-
+if (isset($_POST['verificationmdp'])) {
+    $verificationmdp = $_POST['verificationmdp'];
+}
 
 $dbLink = mysqli_connect('localhost', 'root', '')
 or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
-mysqli_select_db($dbLink , 'user')
+mysqli_select_db($dbLink , 'projet_web_bd')
 or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
 if ($action == 'connexion') {
     session_start();
-    $dbResult = mysqli_query($dbLink, 'SELECT password, role FROM user WHERE nom =\'' .$pseudo.'\'');
+    $dbResult = mysqli_query($dbLink, 'SELECT mdp, role FROM utilisateur WHERE pseudo =\'' .$nom.'\'');
     $connected = false;
     while($dbRow = mysqli_fetch_assoc($dbResult)) {
-        if (md5($mdp) == $dbRow['password']) {
+        if (md5($mdp) == $dbRow['mdp']) {
             $_SESSION['etat'] = 'connecte';
             $_SESSION['role'] = $dbRow['role'];
             $connected = true;
@@ -32,29 +33,22 @@ if ($action == 'connexion') {
 else if ($action == 'inscription') {
     $dbLink = mysqli_connect('localhost', 'root', '')
     or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
-    mysqli_select_db($dbLink , 'user')
+    mysqli_select_db($dbLink , 'projet_web_bd')
     or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
-    if ()
-    $query = 'INSERT INTO user (nom, genre, email, password, verification, telephone, pays, date) VALUES (\''
-        . $nom . '\', \''
-        . $genre . '\', \''
+    $query = 'INSERT INTO utilisateur (mail, pseudo, mdp, role) VALUES (\''
         . $email . '\', \''
-        . $password . '\', \''
-        . $verification . '\', \''
-        . $telephone . '\', \''
-        . $pays . '\', \''
-        . 'NOW()' . '\')';
-    if(!($dbResult = mysqli_query($dbLink, $query)))
-    {
-        echo 'Erreur dans requête<br />';
-        // Affiche le type d'erreur.
-        echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
-        // Affiche la requête envoyée.
-        echo 'Requête : ' . $query . '<br/>';
-        exit();
+        . $nom . '\', \''
+        . md5($mdp) . '\', \''
+        . 'membre' . '\')';
+    if(!($dbResult = mysqli_query($dbLink, $query))) {
+        header('Location: login.php?etat=INSCRIPTIONECHOUEE');
     }
     else {
-        echo $nom.', votre requête a bien été enregistrée.';
+        $_SESSION['etat'] = 'connecte';
+        $_SESSION['role'] = 'membre';
+        $connected = true;
+        echo 'Bienvenue '.$nom.', votre requête a bien été enregistrée ! <br/>
+        <a href = main.php> Retour à la page d\'accueil</a>';
     }
 }
 
