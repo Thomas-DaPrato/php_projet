@@ -1,10 +1,7 @@
 <?php require 'utils.inc.php';
 start_page('VANESTARRE');
 ?>
-<button type="submit" name="action" value="connexion">Connexion</button>
-<form action="recherche_tag.php" method="post">
-    <input type="text" name="tag">
-    <button type="submit" name="rechercher_tag">Rechercher</button>
-</form>
+<button type="submit" name="action" value="connexion"><a href="login.php">Connexion</a></button>
+ici ya tous les messages présent sur le réseau social
 <?php end_page();?>
 

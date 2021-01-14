@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="333c8e66-b570-43d6-b0be-d80dd1850340" name="Default Changelist" comment="ajout du fichier utils.inc.php">
-      <change afterPath="$PROJECT_DIR$/code/recherche_tag.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/traitement.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/traitement.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1610542882866</updated>
       <workItem from="1610542909166" duration="3730000" />
+      <workItem from="1610615134914" duration="2017000" />
     </task>
     <task id="LOCAL-00001" summary="ajout du fichier utils.inc.php">
       <created>1610545277024</created>
