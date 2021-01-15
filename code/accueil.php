@@ -1,5 +1,6 @@
 <?php require 'utils.inc.php';
 start_page('VANESTARRE');
+
 $link = connection('localhost','root','');
 mysqli_select_db($link,'projet_web_bd');
 $querry = 'SELECT texte, id_msg from message';

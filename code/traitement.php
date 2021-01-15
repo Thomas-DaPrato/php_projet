@@ -23,7 +23,7 @@ if ($action == 'connexion') {
             $_SESSION['etat'] = 'connecte';
             $_SESSION['role'] = $dbRow['role'];
             $connected = true;
-            header('Location: main.php');
+            header('Location: accueil.php');
         }
     }
     if (!$connected) {
@@ -51,5 +51,4 @@ else if ($action == 'inscription') {
         <a href = accueil.php.php> Retour à la page d\'accueil</a>';
     }
 }
-
 ?>
