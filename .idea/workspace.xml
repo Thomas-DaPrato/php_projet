@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="333c8e66-b570-43d6-b0be-d80dd1850340" name="Default Changelist" comment="ajout du fichier utils.inc.php">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/accueil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/style.css" afterDir="false" />
     </list>
@@ -43,7 +44,7 @@
       <updated>1610542882866</updated>
       <workItem from="1610542909166" duration="3730000" />
       <workItem from="1610615134914" duration="2017000" />
-      <workItem from="1610699609160" duration="2025000" />
+      <workItem from="1610699609160" duration="3684000" />
     </task>
     <task id="LOCAL-00001" summary="ajout du fichier utils.inc.php">
       <created>1610545277024</created>

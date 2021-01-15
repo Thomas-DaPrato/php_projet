@@ -11,10 +11,12 @@ if (!($resultRequete = mysqli_query($link,$querry)))
     echo 'requete : ' .$querry . '<br/>';
 }
 
-echo '<div class="message">';
+echo '<div class="container_msg">';
 while ($result = mysqli_fetch_assoc($resultRequete))
 {
+    echo '<div class="msg">';
     echo $result['texte'], '<br/>';
+    echo '</div>';
 }
 echo '</div>';
 ?>

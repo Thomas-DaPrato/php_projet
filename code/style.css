@@ -3,7 +3,7 @@ body {
 }
 
 .nav-bar {
-    height: 100px;
+    height: 200px;
     widht: 100%;
     background-color: red;
 }
@@ -19,10 +19,21 @@ ul.menu {
 }
 
 li.menu_liste {
+    margin : 50px;
     display: inline-block;
 }
 
-.message {
+.container_msg {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg {
+    display: flex;
+
     justify-content: center;
+    height: 20px;
+    width: 50px;
+    margin : 10px;
 }
