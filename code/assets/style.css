@@ -30,10 +30,9 @@ li.menu_liste {
 }
 
 .msg {
-    display: flex;
-
-    justify-content: center;
+    border-width: 1px;
+    border-style: solid;
     height: 20px;
-    width: 50px;
+    width: 100px;
     margin : 10px;
 }

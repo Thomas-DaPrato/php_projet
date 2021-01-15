@@ -18,10 +18,11 @@ while ($result = mysqli_fetch_assoc($resultRequete))
     echo $result['texte'], '<br/>';
     echo '</div>';
 }
+echo 'ici ya tous les messages présent sur le réseau social';
 echo '</div>';
 ?>
 
-ici ya tous les messages présent sur le réseau social
+
 
 <form action="recherche_tag.php" method="post">
     <input type="text" name="rechercher_tag" placeholder="tag" required>
