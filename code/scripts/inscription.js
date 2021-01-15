@@ -5,8 +5,14 @@ function verifMdp(){
 	var mdpField2 = document.getElementById("mdp_field_2");
 	var submitButton = document.getElementById("submit_button");
 	if(mdpField1.value == mdpField2.value){
-		submitButton.disabled = false;
+		mdpField2.setCustomValidity('');
 	}else{
-		submitButton.disabled = true;
+		mdpField2.setCustomValidity("Le mot de passe doit etre le meme");
 	}
 }
+
+onload = function(){
+	var mdpField2 = document.getElementById("mdp_field_2");
+	mdpField2.setCustomValidity("Le mot de passe doit etre le meme");
+	verifMdp();
+};
