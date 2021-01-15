@@ -11,10 +11,12 @@ if (!($resultRequete = mysqli_query($link,$querry)))
     echo 'requete : ' .$querry . '<br/>';
 }
 
+echo '<div class="message">';
 while ($result = mysqli_fetch_assoc($resultRequete))
 {
     echo $result['texte'], '<br/>';
 }
+echo '</div>';
 ?>
 
 ici ya tous les messages présent sur le réseau social

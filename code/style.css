@@ -22,3 +22,7 @@ li.menu_liste {
     display: inline-block;
 }
 
+.message {
+    display: flex;
+    justify-content: center;
+}
