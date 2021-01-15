@@ -5,8 +5,6 @@ if (isset($_POST['email']))
     $email = $_POST['email'];
 $mdp = $_POST['mdp'];
 $action = $_POST['action'];
-<<<<<<< Updated upstream
-=======
 if (isset($_POST['verificationmdp'])) {
     $verificationmdp = $_POST['verificationmdp'];
 }
@@ -53,6 +51,4 @@ else if ($action == 'inscription') {
         <a href = main.php> Retour à la page d\'accueil</a>';
     }
 }
->>>>>>> Stashed changes
-
 ?>
