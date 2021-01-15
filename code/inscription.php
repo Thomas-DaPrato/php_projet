@@ -1,22 +1,21 @@
 <?php require 'utils.inc.php';
 start_page('Login');?>
 
-<?php
-if (isset($_GET['etat']) && $_GET['etat'] == 'echec') {
-    echo '<b> Problème inconnu, veuillez réessayer. </b> ';
-}
-if (isset($_GET['etat']) && $_GET['etat'] == 'emailinvalide') {
-    echo '<b> Un compte existe déjà pour cet email, veuillez en choisir un autre ou 
-        <a href="recuperation.php"></a>retrouver votre mot de passe</b> ';
-}
-if (isset($_GET['etat']) && $_GET['etat'] == 'echec') {
-    echo '<b> Un compte existe déjà pour ce pseudo, veuillez en changer. </b> ';
-}
-?>
-
 <!-- Formulaire d'inscription -->
 <fieldset>
-    <h1 class="title_co">Se connecter</h1>
+    <?php
+    if (isset($_GET['etat']) && $_GET['etat'] == 'echec') {
+        echo '<b> Problème inconnu, veuillez réessayer. </b> ';
+    }
+    if (isset($_GET['etat']) && $_GET['etat'] == 'emailinvalide') {
+        echo '<b> Un compte existe déjà pour cet email, veuillez en choisir un autre ou 
+        <a href="recuperation.php"></a>retrouver votre mot de passe</b> ';
+    }
+    if (isset($_GET['etat']) && $_GET['etat'] == 'pseudoinvalide') {
+        echo '<b> Un compte existe déjà pour ce pseudo, veuillez en changer. </b> ';
+    }
+    ?>
+    <h1 class="title_co">S'inscrire</h1>
     <form action="traitement.php" method="post">
         <!-- faire une redirection vers une page d'inscription ? -->
         <input type="text" name="pseudo" placeholder='Pseudo' required/><br>
