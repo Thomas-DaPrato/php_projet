@@ -1,4 +1,4 @@
-<?php require 'connection_BD.php';
+<?php require 'utils.inc.php';
 $link = connection('localhost','root','');
 mysqli_select_db($link,'projet_web_bd');
 $tag = $_POST['rechercher_tag'];

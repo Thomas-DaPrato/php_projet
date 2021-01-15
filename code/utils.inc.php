@@ -11,7 +11,7 @@ function start_page($title)
     <ul class="menu">
       <li class="menu_liste"><a href="accueil.php">Accueil</a></li>
       <li class="menu_liste"><a href="a-propos.php">À propos</a></li>
-      <li class="menu_liste"><a href="co-ins.php">Connexion/Inscription</a></li>
+      <li class="menu_liste"><a href="connexion.php">Connexion/Inscription</a></li>
       <li class="menu_liste"><a href="admin.php">Admin</a></li>
     </ul>
 </div>
@@ -23,4 +23,14 @@ function end_page()
 {
     echo '</body></html>';
 }
+
+
+function connection($hostname, $username, $pwd)
+{
+    if (!($dbLink = mysqli_connect($hostname, $username, $pwd)))
+        die('Erreur de connexion au serveur : ' . mysqli_connect_error());
+    return $dbLink;
+}
+
+
 ?>

@@ -16,4 +16,7 @@ if (isset($_GET['etat']) && $_GET['etat'] == 'echec') {
         <button type="submit" name="action" value="connexion">Connexion</button>
     </fieldset>
 </form>
+
+toujours pas inscrit ? Inscrivez-vous !!
+<a href="inscription.php"><button>Inscription</button></a>
 <?php end_page();?>
