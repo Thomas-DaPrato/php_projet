@@ -1,7 +1,22 @@
 <?php require 'utils.inc.php';
+require 'connection_BD.php';
 start_page('VANESTARRE');
+$link = connection('localhost','root','');
+mysqli_select_db($link,'projet_web_bd');
+$querry = 'select texte from message';
+if (!($resultRequete = mysqli_query($link,$querry)))
+{
+    echo 'erreur de requete <br/>';
+    echo 'erreur :' .mysqli_error($link) . '<br/>';
+    echo 'requete : ' .$querry . '<br/>';
+}
+
+while ($result = mysqli_fetch_assoc($resultRequete))
+{
+    echo $result['texte'], '<br/>';
+}
 ?>
-<button type="submit" name="action" value="connexion"><a href="login.php">Connexion</a></button>
+
 ici ya tous les messages présent sur le réseau social
 
 <form action="recherche_tag.php" method="post">

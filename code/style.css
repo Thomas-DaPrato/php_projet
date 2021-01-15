@@ -5,6 +5,20 @@ body {
 .nav-bar {
     height: 100px;
     widht: 100%;
-    background-color: #000;
+    background-color: red;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin : 0;
+    padding : 0;
+}
+
+li.menu_liste {
+    display: inline-block;
 }
 

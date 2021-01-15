@@ -8,11 +8,11 @@ function start_page($title)
    <!-- Barre de navigation -->
    <div class="nav-bar">
    <span><h1>Le logo</h1></span>
-    <ul>
-      <li><a href="accueil.php">Accueil</a></li>
-      <li><a href="a-propos.php">À propos</a></li>
-      <li><a href="co-ins.php">Connexion/Inscription</a></li>
-      <li><a href="admin.php">Admin</a></li>
+    <ul class="menu">
+      <li class="menu_liste"><a href="accueil.php">Accueil</a></li>
+      <li class="menu_liste"><a href="a-propos.php">À propos</a></li>
+      <li class="menu_liste"><a href="co-ins.php">Connexion/Inscription</a></li>
+      <li class="menu_liste"><a href="admin.php">Admin</a></li>
     </ul>
 </div>
 
