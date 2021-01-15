@@ -8,15 +8,15 @@ if (isset($_GET['etat']) && $_GET['etat'] == 'echec') {
 ?>
 
 <!-- Formulaire d'inscription -->
-<form action="traitement.php" method="post">
-    <fieldset>
+<fieldset>
+    <h1 class="title_co">Se connecter</h1>
+    <form action="traitement.php" method="post">
         <!-- faire une redirection vers une page d'inscription ? -->
-        <h3>Toujours pas inscrit ? Inscrivez-vous !!</h3><br>
         <input type="text" name="pseudo" placeholder='Pseudo' required/><br>
         <input type="email" name="email" placeholder='Email' required><br>
         <input type="password" name="mdp" placeholder='Mot de passe' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required  title="Doit contenir au moins un chiffre, une minuscule, une majuscule, et au moins 8 caractères"/><br>
         <input type="password" name="verificationmdp" placeholder='Confirmation mpd' required><br/>
         <button type="submit" name="action" value="inscription">Inscription</button>
-    </fieldset>
-</form>
+    </form>
+</fieldset>
 
