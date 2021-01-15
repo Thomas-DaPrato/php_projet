@@ -48,7 +48,7 @@ else if ($action == 'inscription') {
         $_SESSION['role'] = 'membre';
         $connected = true;
         echo 'Bienvenue '.$nom.', votre requête a bien été enregistrée ! <br/>
-        <a href = main.php> Retour à la page d\'accueil</a>';
+        <a href = accueil.php.php> Retour à la page d\'accueil</a>';
     }
 }
 ?>

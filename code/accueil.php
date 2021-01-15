@@ -1,10 +1,9 @@
 <?php require 'utils.inc.php';
-require 'connection_BD.php';
 start_page('VANESTARRE');
 
 $link = connection('localhost','root','');
 mysqli_select_db($link,'projet_web_bd');
-$querry = 'select texte from message';
+$querry = 'SELECT texte, id_msg from message';
 if (!($resultRequete = mysqli_query($link,$querry)))
 {
     echo 'erreur de requete <br/>';
@@ -16,7 +15,7 @@ echo '<div class="container_msg">';
 while ($result = mysqli_fetch_assoc($resultRequete))
 {
     echo '<div class="msg">';
-    echo $result['texte'], '<br/>';
+    echo $result['texte'],'<br/>';
     echo '</div>';
 }
 echo 'ici ya tous les messages présent sur le réseau social';
