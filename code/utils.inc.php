@@ -11,7 +11,7 @@ function start_page($title)
      <ul>
       <li><a href="accueil.php">Accueil</a></li>
       <li><a href="a-propos.php">À propos</a></li>
-      <li><a href="co-ins.php">Connexion/Inscription</a></li>
+      <li><a href="connexion.php.php">Connexion</a></li>
       <li><a href="admin.php">Admin</a></li>
     </ul>
 </nav>
