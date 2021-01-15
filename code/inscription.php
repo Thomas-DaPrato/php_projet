@@ -1,7 +1,7 @@
 <?php require 'utils.inc.php';
 start_page('Login');?>
 
-<script src="scripts/inscription.js"></script> 
+<script src="assets/scripts/inscription.js"></script> 
 
 <?php
 if (isset($_GET['etat']) && $_GET['etat'] == 'echec') {
