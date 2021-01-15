@@ -16,12 +16,13 @@ or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
 
 if ($action == 'connexion') {
     session_start();
-    $dbResult = mysqli_query($dbLink, 'SELECT mdp, role FROM utilisateur WHERE pseudo =\'' .$nom.'\'');
+    $dbResult = mysqli_query($dbLink, 'SELECT mdp, role, pseudo FROM utilisateur WHERE pseudo =\'' .$nom.'\'');
     $connected = false;
     while($dbRow = mysqli_fetch_assoc($dbResult)) {
         if (md5($mdp) == $dbRow['mdp']) {
             $_SESSION['etat'] = 'connecte';
             $_SESSION['role'] = $dbRow['role'];
+            $_SESSION['pseudo'] = $dbRow['pseudo'];
             $connected = true;
             header('Location: accueil.php');
         }
@@ -52,6 +53,7 @@ else if ($action == 'inscription') {
         } else {
             $_SESSION['etat'] = 'connecte';
             $_SESSION['role'] = 'membre';
+            $_SESSION['pseudo'] = $nom;
             $connected = true;
             echo 'Bienvenue ' . $nom . ', votre requête a bien été enregistrée ! <br/>
             <a href = main.php> Retour à la page d\'accueil</a>';
