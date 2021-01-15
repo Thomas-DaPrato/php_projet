@@ -27,7 +27,7 @@ if ($action == 'connexion') {
         }
     }
     if (!$connected) {
-        header('Location: login.php?etat=CONNEXIONECHOUEE');
+        header('Location: connexion.php?etat=echec');
     }
 }
 else if ($action == 'inscription') {
@@ -41,7 +41,7 @@ else if ($action == 'inscription') {
         . md5($mdp) . '\', \''
         . 'membre' . '\')';
     if(!($dbResult = mysqli_query($dbLink, $query))) {
-        header('Location: login.php?etat=INSCRIPTIONECHOUEE');
+        header('Location: inscription.php?etat=echec');
     }
     else {
         $_SESSION['etat'] = 'connecte';
