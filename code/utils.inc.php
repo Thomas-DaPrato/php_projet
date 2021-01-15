@@ -2,8 +2,8 @@
 function start_page($title)
 {
     echo '<!DOCTYPE html> <html lang="fr">'. PHP_EOL . '<head><title>' .$title . '</title>
-    <link rel="stylesheet"  type="text/css" href="style.css" > <!-- Importation du CSS -->
-    <link rel="icon" type="image/ico" href="favicon.ico"/> <!-- Favicon -->
+    <link rel="stylesheet"  type="text/css" href="assets/style.css" > <!-- Importation du CSS -->
+    <link rel="icon" type="image/ico" href="assets/logo_vanestarre.png"/> <!-- Favicon -->
    
    <!-- Barre de navigation -->
    <div class="nav-bar">
