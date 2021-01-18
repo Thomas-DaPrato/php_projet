@@ -1,5 +1,5 @@
 // <script src="scripts/inscription.js"></script> 
-
+//affichage
 function verifMdp(){
 	var mdpField1 = document.getElementById("mdp_field_1");
 	var mdpField2 = document.getElementById("mdp_field_2");
