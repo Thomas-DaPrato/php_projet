@@ -1,0 +1,38 @@
+body {
+    font-family: Arial;
+}
+
+.nav-bar {
+    height: 200px;
+    widht: 100%;
+    background-color: #ffacac;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin : 0;
+    padding : 0;
+}
+
+li.menu_liste {
+    margin : 50px;
+    display: inline-block;
+}
+
+.container_msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg {
+    border-width: 1px;
+    border-style: solid;
+    height: 20px;
+    width: auto;
+    margin : 10px;
+}
