@@ -12,7 +12,7 @@ if (isset($_GET['etat']) && $_GET['etat'] == 'echec') {
 <!-- Formulaire d'inscription -->
 <fieldset>
     <h1 class="title_co">Se connecter</h1>
-    <form action="traitement.php" method="post">
+    <form action="assets/php/traitement.php" method="post">
         <!-- faire une redirection vers une page d'inscription ? -->
         <input type="text" name="pseudo" placeholder='Pseudo' required/><br>
         <input type="email" name="email" placeholder='Email' required><br>

@@ -24,7 +24,7 @@ echo '</div>';
 
 
 
-<form action="recherche_tag.php" method="post">
+<form action="assets/php/recherche_tag.php" method="post">
     <input type="text" name="rechercher_tag" placeholder="tag" required>
     <button type="submit" name="recherche">Ok</button>
 </form>
