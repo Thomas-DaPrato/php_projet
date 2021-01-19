@@ -23,10 +23,10 @@ final class modeleInscription {
 
     public function Inscrire ($pseudo, $email, $mdp) {
         $bdd = new Bdd();
-        if ($bdd->executerReq('SELECT COUNT(*) FROM utilisateur WHERE mail = \''.$email.'\'')->fetch(PDO::FETCH_ASSOC) != 0) {
+        if ($bdd->executerReq('SELECT COUNT(*) FROM utilisateur WHERE mail = \''.$email.'\'')->fetch(PDO::FETCH_ASSOC)['COUNT(*)'] != 0) {
             header('Location: index.php?c=Inscription&etat=mailinvalide');
         }
-        else if ($bdd->executerReq('SELECT COUNT(*) FROM utilisateur WHERE pseudo = \''.$pseudo.'\'')->fetch(PDO::FETCH_ASSOC) != 0) {
+        else if ($bdd->executerReq('SELECT COUNT(*) FROM utilisateur WHERE pseudo = \''.$pseudo.'\'')->fetch(PDO::FETCH_ASSOC)['COUNT(*)'] != 0) {
             header('Location: index.php?c=Inscription&etat=pseudoinvalide');
         }
         else {
