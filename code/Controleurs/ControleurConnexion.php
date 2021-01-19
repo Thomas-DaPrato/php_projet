@@ -2,11 +2,9 @@
 
 final class ControleurConnexion
 {
-    public function SeConnecter()
+    public function Afficher()
     {
-
         Vue::montrer('vueConnexion', array());
-
     }
 
 }

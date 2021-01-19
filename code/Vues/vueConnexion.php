@@ -7,5 +7,5 @@
         <button type="submit" name="action" value="connexion">Connexion</button>
 
     </form><br/>
-    <a href="inscription.php">Pas encore inscrit ?</a>
+    <a href="index.php?c=Inscription&a=Afficher">Pas encore inscrit ?</a>
 </fieldset>

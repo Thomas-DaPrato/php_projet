@@ -7,7 +7,7 @@ echo '<header>
      <ul>
       <li><a href="index.php?c=Accueil&a=Afficher">Accueil</a></li>
       <li><a href="#">À propos</a></li>
-      <li><a href="index.php?c=Connexion&a=SeConnecter">Connexion</a></li>
+      <li><a href="index.php?c=Connexion&a=Afficher">Connexion</a></li>
       <li><a href="#">Admin</a></li>
     </ul>
 </nav>
