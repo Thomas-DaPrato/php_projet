@@ -31,6 +31,6 @@ class Bdd{
     }
 	
 	public function errorInfo(){
-		return $_bdd->errorInfo();
+		return self::$_bdd->errorInfo();
 	}
 }

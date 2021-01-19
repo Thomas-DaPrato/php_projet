@@ -30,7 +30,11 @@ final class Recherche{
 	
 	 public function __construct (){
 		 $this->bdd = new Bdd();
-		 $this->tag = $_GET['rechercher_tag'];
+		 if(isset($_GET['rechercher_tag'])){
+			$this->tag = $_GET['rechercher_tag'];
+		 }else{
+			$this->tag = ' '; 
+		 }
 	 }
 	 
 	 public function triPas(){
@@ -45,7 +49,7 @@ final class Recherche{
 		}else{
 			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
 				$texte .= $result['id_msg'] . '<br/>';
-				$querryMsg = 'select texte from message where id_msg = \'' . $result['id_msg'] . '\'' . PHP_EOL;
+				$querryMsg = 'select texte from message where id_msg = \'' . $result['id_msg'] . '\'';
 				$msg = $this->bdd->executerReq($querryMsg);
 				$texte .= $msg->fetch(PDO::FETCH_ASSOC)['texte'] . PHP_EOL . '<br/>' . PHP_EOL;
 			}
