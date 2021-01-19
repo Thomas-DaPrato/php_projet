@@ -1,5 +1,5 @@
 <?php
-abstract class Bdd{
+class Bdd{
 
     private static $_bdd;
 
@@ -11,7 +11,7 @@ abstract class Bdd{
     }
 
     // RECUPERE LA CONNEXION A LA BDD
-    protected function getBdd(){
+    public function getBdd(){
 
         if(self::$_bdd == null)
             self::setBdd(); // on créer la connexion si elle n'existe pas
@@ -19,7 +19,7 @@ abstract class Bdd{
     }
 
     // EXECUTE UNE REQUETE SQL
-    protected function executerReq($sql, $params = null){
+    public function executerReq($sql, $params = null){
         if ($params == null){
             $resultat = self::getBdd()->query($sql); // exécution directe
         }
@@ -29,4 +29,8 @@ abstract class Bdd{
         }
         return $resultat;
     }
+	
+	public function errorInfo(){
+		return $_bdd->errorInfo();
+	}
 }
