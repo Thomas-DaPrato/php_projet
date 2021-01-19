@@ -1,4 +1,5 @@
 <?php
+// Accès aux données
 $nom = $_POST['pseudo'];
 $email = '';
 if (isset($_POST['email']))

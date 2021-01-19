@@ -5,7 +5,7 @@ body {
 .nav-bar {
     height: 200px;
     widht: 100%;
-    background-color: red;
+    background-color: #ffacac;
 }
 
 a {
@@ -33,6 +33,6 @@ li.menu_liste {
     border-width: 1px;
     border-style: solid;
     height: 20px;
-    width: 100px;
+    width: auto;
     margin : 10px;
 }
