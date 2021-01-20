@@ -18,7 +18,7 @@ body {
 }
 
 .nav-bar {
-    height: 100px;
+    height: auto;
     width: 100%;
     background-color: #ffacac;
     display: flex;
