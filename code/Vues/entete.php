@@ -10,6 +10,13 @@ echo '<header>
       <li><a href="index.php?c=Utilisateur&a=Afficher">Connexion</a></li>
       <li><a href="#">Admin</a></li>
     </ul>
+    <div align="right">';
+if (isset($_SESSION['pseudo'])) {
+    echo $_SESSION['pseudo'];
+}
+else{
+    echo 'Invité';
+}
+echo '</div>
 </nav>
-
 </header>';

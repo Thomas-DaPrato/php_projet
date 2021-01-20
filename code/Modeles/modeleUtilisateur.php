@@ -18,7 +18,7 @@ final class modeleUtilisateur {
         }
     }
 
-    public function Inscrire ($pseudo, $email, $mdp) {
+    public function Inscription ($pseudo, $email, $mdp) {
         $bdd = new Bdd();
         if ($bdd->executerReq('SELECT COUNT(*) FROM utilisateur WHERE mail = \''.$email.'\'')->fetch(PDO::FETCH_ASSOC)['COUNT(*)'] != 0) {
             header('Location: index.php?c=Utilisateur&a=AfficherInscription&etat=mailinvalide');
@@ -35,7 +35,6 @@ final class modeleUtilisateur {
             if (!$bdd->executerReq($requete)) {
                 header('Location: index.php?c=Utilisateur&a=afficherInscription&etat=echec');
             } else {
-                $_SESSION['etat'] = 'connecte';
                 $_SESSION['role'] = 'membre';
                 $_SESSION['pseudo'] = $pseudo;
                 $connected = true;
@@ -51,7 +50,6 @@ final class modeleUtilisateur {
         $connected = false;
         while($dbRow = $bddresult->fetch(PDO::FETCH_ASSOC)) {
             if (md5($mdp) == $dbRow['mdp']) {
-                $_SESSION['etat'] = 'connecte';
                 $_SESSION['role'] = $dbRow['role'];
                 $_SESSION['pseudo'] = $pseudo;
                 $connected = true;
