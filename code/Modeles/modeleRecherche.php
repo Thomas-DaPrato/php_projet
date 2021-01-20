@@ -8,8 +8,8 @@ final class Recherche{
 	
 	public function __construct (){
 		$this->bdd = new Bdd();
-		if(isset($_GET['rechercher_tag'])){
-			$this->tag = $_GET['rechercher_tag'];
+		if(isset($_GET['tag'])){
+			$this->tag = $_GET['tag'];
 		}else{
 			$this->tag = ' '; 
 		}
