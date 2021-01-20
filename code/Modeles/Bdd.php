@@ -29,8 +29,9 @@ class Bdd{
         }
         return $resultat;
     }
-
-    public function errorInfo(){
-        return self::$_bdd->errorInfo();
-    }
+	
+	public function errorInfo(){
+		return self::$_bdd->errorInfo();
+	}
+  
 }
