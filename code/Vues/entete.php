@@ -12,4 +12,6 @@
     </ul>
 </nav>
 
-</header>
+<section></section>
+
+</header>';
