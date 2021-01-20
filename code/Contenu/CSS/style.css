@@ -1,5 +1,10 @@
 @charset "utf-8";
-
+/* Responsive tel*/
+@media screen and (max-width: 650px) {
+    ul.menu {
+        flex-wrap: wrap;
+    }
+}
 html{
     height: 100%;
     background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
@@ -12,18 +17,12 @@ body {
 
 }
 
-#vertical-container {
-    width: 55%;
-    margin: 0 auto;
-    padding: 3% ;
-    background-color: #8fd3f4;
-    height: 100%
-}
-
 .nav-bar {
-    height: 200px;
-    widht: 100%;
+    height: auto;
+    width: 100%;
     background-color: #ffacac;
+    display: flex;
+    flex-direction: row;
 }
 
 section {
@@ -34,56 +33,29 @@ section {
 
 a {
     text-decoration: none;
+    font-size: 25px;
+    color: black;
 }
-
-.btn{
-    flex: 1 1 auto;
-    margin: 10px;
-    padding: 30px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-}
-
-.btn:hover{
-    background-position: right center;
-}
-
-.nav-link1{
-    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
-}
-
-.nav-link2{
-    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
-}
-
-.nav-link3{
-    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
-}
-
-.nav-link4{
-    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
-}
-
-.nav-item{
-    margin-left: 10px;
-    mergin-right: 10px;
+a:hover {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 9px;
 }
 
 ul.menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
     list-style-type: none;
     margin : 0;
     padding : 0;
 }
 
 li.menu_liste {
-    margin : 50px;
-    display: inline-block;
+    margin : auto;
+    display: block;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #F2C65E 0%, #FCAC54 50%, #DD7604 100%);
 }
 
 .container_msg {
