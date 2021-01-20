@@ -35,7 +35,7 @@
                 header('Location: index.php?c=Utilisateur&a=AfficherInscription&etat=informationsinvalides');
             }
             else {
-                $traitement->Inscrire($_POST['pseudo'], $_POST['email'], $_POST['mdp']);
+                $traitement->Inscription($_POST['pseudo'], $_POST['email'], $_POST['mdp']);
             }
         }
     }
