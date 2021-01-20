@@ -4,12 +4,12 @@
 <nav class="nav-bar">
     <img src="Contenu/Images/logo_vanestarre.png" alt="logo">
      <ul class="menu">
-      <li class="menu_liste"><a class="lien_menu" href="index.php?c=Accueil&a=Afficher">Accueil</a></li>
+      <li class="menu_liste"><a class="lien_menu" href="index.php?c=Accueil&a=AfficherAccueil">Accueil</a></li>
       <li class="menu_liste"><a class="lien_menu" href="index.php?c=Utilisateur">Connexion</a></li>
       <li class="menu_liste"><a class="lien_menu" href="#">Admin</a></li>
 
     </ul>
-    <div align="right">
+    <div class="pseudo" align="right">
         <?php
 if (isset($_SESSION['pseudo'])) {
     echo $_SESSION['pseudo'];
@@ -21,12 +21,6 @@ else{
 </div>
 </nav>
 
-
-<section class="a_propos">
-    Coucou je m'appelle Vanessa MAUREL, plus connu sous le nom de VANESTARRE. Tu te trouve sur mon petit réseau social. <br/>
-    J'éspère que tu aimes me donner de l'argent car j'aime ça. <br/>
-    Des bisous trop <em>swag</em>
-</section>
 
 </header>
 

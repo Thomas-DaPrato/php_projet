@@ -16,7 +16,7 @@ final class Controleur
 
         if (empty($S_action)) {
             // L'action est vide ! On la valorise par défaut
-            $this->_A_urlDecortique['action'] = 'Afficher';
+            $this->_A_urlDecortique['action'] = 'AfficherAccueil';
         } else {
 
             $this->_A_urlDecortique['action']  = $S_action;
