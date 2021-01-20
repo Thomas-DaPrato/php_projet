@@ -29,16 +29,16 @@ final class Recherche{
 	private $bdd;
 	private $tag;
 	
-	 public function __construct (){
-		 $this->bdd = new Bdd();
-		 if(isset($_GET['rechercher_tag'])){
+	public function __construct (){
+		$this->bdd = new Bdd();
+		if(isset($_GET['rechercher_tag'])){
 			$this->tag = $_GET['rechercher_tag'];
-		 }else{
+		}else{
 			$this->tag = ' '; 
-		 }
-	 }
-	 
-	 public function triPas(){
+		}
+	}
+	
+	public function triDefaut(){
 		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\'';
 		$resultat='';
 		$messages = new Messages();
@@ -52,13 +52,9 @@ final class Recherche{
 			}
 		}
 		return $messages->getHTML();
-	 }
-	 
-	 public function triParDateRecente(){
-		 
-	 }
-	 
-	 private function getMessageByID($id){
+	}
+	
+	private function getMessageByID($id){
 		$message = array();
 		$querryMsg = 'select texte from message where id_msg = \'' . $id . '\'';
 		$res = $this->bdd->executerReq($querryMsg);
@@ -73,7 +69,23 @@ final class Recherche{
 		}
 		
 		return $message;
-	 }
+	}
+	
+	public function triRecent(){
+		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\' ORDER BY id_msg DESC';
+		$resultat='';
+		$messages = new Messages();
+		if (!($resultat = $this->bdd->executerReq($querry))){
+			return  'erreur de requete <br/>' . PHP_EOL .
+			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
+			'requete : ' . $querry . '<br/>';
+		}else{
+			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
+				$messages->addMessage(self::getMessageByID($result['id_msg']));
+			}
+		}
+		return $messages->getHTML();
+	}
 	
 }
 
