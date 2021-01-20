@@ -13,7 +13,11 @@ html{
 body {
     font-family: Arial;
     height: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 0;
     background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+    border-radius: 15px;
 
 }
 
@@ -70,15 +74,25 @@ li.menu_liste {
 .msg {
     border-width: 1px;
     border-style: solid;
-    height: 20px;
+    height: auto;
     width: auto;
     margin : 10px;
 }
 
 footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     position : fixed;
     bottom: 0;
 }
 
+.pseudo {
+    background-color : #D361B4;
+    border-radius: 10px 0 0 10px;
+    height: 1em;
+    font-size: 25px;
+    padding: 10px;
+}
 
 
