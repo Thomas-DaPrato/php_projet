@@ -1,6 +1,7 @@
 <?php 
 //require '../utils.inc.php';
 require 'Bdd.php';
+require 'Messages.inc.php';
 
 
 // Accès aux données
@@ -40,25 +41,38 @@ final class Recherche{
 	 public function triPas(){
 		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\'';
 		$resultat='';
-		$texte='';
+		$messages = new Messages();
 		if (!($resultat = $this->bdd->executerReq($querry))){
-			//affichage
-			$texte =  'erreur de requete <br/>' . PHP_EOL .
+			return  'erreur de requete <br/>' . PHP_EOL .
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
 			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
-				$texte .= $result['id_msg'] . '<br/>';
-				$querryMsg = 'select texte from message where id_msg = \'' . $result['id_msg'] . '\'';
-				$msg = $this->bdd->executerReq($querryMsg);
-				$texte .= $msg->fetch(PDO::FETCH_ASSOC)['texte'] . PHP_EOL . '<br/>' . PHP_EOL;
+				$messages->addMessage(self::getMessageByID($result['id_msg']));
 			}
 		}
-		return $texte;
+		return $messages->getHTML();
 	 }
 	 
 	 public function triParDateRecente(){
-		 $querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\'';
+		 
+	 }
+	 
+	 private function getMessageByID($id){
+		$message = array();
+		$querryMsg = 'select texte from message where id_msg = \'' . $id . '\'';
+		$res = $this->bdd->executerReq($querryMsg);
+		$message['texte'] = $res->fetch(PDO::FETCH_ASSOC)['texte'];
+		
+		$message['tags'] = array();
+		$querryMsg = 'select texte_tag from tag where id_msg = \''. $id . '\'';
+		$res = $this->bdd->executerReq($querryMsg);
+		
+		while($texte_tag = $res->fetch(PDO::FETCH_ASSOC)){
+			$message['tags'][] = $texte_tag['texte_tag'];
+		}
+		
+		return $message;
 	 }
 	
 }
