@@ -74,7 +74,7 @@ li.menu_liste {
 .msg {
     border-width: 1px;
     border-style: solid;
-    height: 20px;
+    height: auto;
     width: auto;
     margin : 10px;
 }
