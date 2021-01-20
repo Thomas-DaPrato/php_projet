@@ -1,3 +1,9 @@
+<section class="a_propos">
+    Coucou je m'appelle Vanessa MAUREL, plus connu sous le nom de VANESTARRE. Tu te trouve sur mon petit réseau social. <br/>
+    J'éspère que tu aimes me donner de l'argent car j'aime ça. <br/>
+    Des bisous trop <em>swag</em>
+</section>
+
 <!-- Formulaire de contact-->
 
 <h1>Contact</h1>
