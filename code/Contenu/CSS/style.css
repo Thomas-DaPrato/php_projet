@@ -26,6 +26,12 @@ body {
     background-color: #ffacac;
 }
 
+section {
+    background: url(https://i.imgur.com/Dk3XeQE.jpg) no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px)
+}
+
 a {
     text-decoration: none;
 }

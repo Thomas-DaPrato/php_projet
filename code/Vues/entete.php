@@ -12,4 +12,6 @@ echo '<header>
     </ul>
 </nav>
 
+<section></section>
+
 </header>';
