@@ -30,7 +30,12 @@ class Bdd{
         return $resultat;
     }
 
-    public function errorInfo(){
-        return self::$_bdd->errorInfo();
+
+    public function prepare($requete){
+        return self::$_bdd->prepare($requete);
     }
+
+	public function errorInfo(){
+		return self::$_bdd->errorInfo();
+	}
 }
