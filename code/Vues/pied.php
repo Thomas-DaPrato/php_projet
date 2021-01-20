@@ -1,1 +1,1 @@
-<footer></footer>
+<footer>© 2021 Vanessa Maurel, VANESTARRE - <a href="#">Politique de confidentialité</a> - <a href="#">Conditions générales</a></footer>

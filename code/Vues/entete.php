@@ -1,6 +1,7 @@
 <header>
 
 <!-- Barre de navigation -->
+
 <nav class="nav-bar">
     <img src="Contenu/Images/logo_vanestarre.png" alt="logo">
      <ul class="menu">
