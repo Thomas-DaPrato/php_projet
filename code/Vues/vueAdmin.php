@@ -1,17 +1,9 @@
-<h1>Choisir une image</h1>
+<script src="../Scripts/telechargerImage.js"></script>
 
-<form>
-<input action="#" type="file" id="champ-fichier>
-    <div>
-    <img src="#" id="champ-image">
+<!-- Poster une image -->
+
+<div id="champ-image">
+    <input type="file" onchange="aperçu_image(event)">
+    <img id="sortir_image" width="250" height="250"/>
 </div>
-</form>
 
-<script>
-
-    function aperçuImage(){
-        lire = new FileReader();
-        champImage = document.getElementById("ch")
-    }
-
-</script>

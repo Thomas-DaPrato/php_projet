@@ -1,4 +1,4 @@
-// <script src="scripts/inscription.js"></script> 
+// <script src="../Scripts/inscription.js"></script>
 //affichage
 function verifMdp(){
 	var mdpField1 = document.getElementById("mdp_field_1");
