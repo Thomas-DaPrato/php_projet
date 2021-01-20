@@ -1,7 +1,3 @@
-<?php
-
-echo 'Accueil';?>
-
 <!-- Formulaire de contact-->
 
 <h1>Contact</h1>
@@ -16,4 +12,7 @@ echo 'Accueil';?>
     </div>
     <input type="submit" name="action" value="Envoyer" id="input-submit">
 </form>
+
+
+
 

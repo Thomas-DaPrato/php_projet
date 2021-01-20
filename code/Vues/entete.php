@@ -10,18 +10,24 @@
       <li class="menu_liste"><a href="#">Admin</a></li>
 
     </ul>
-    <div align="right">';
+    <div align="right">
+        <?php
 if (isset($_SESSION['pseudo'])) {
     echo $_SESSION['pseudo'];
 }
 else{
     echo 'Invité';
 }
-echo '</div>
+?>
+</div>
 </nav>
 
 
-<section></section>
+<section class="a_propos">
+    Coucou je m'appelle Vanessa MAUREL, plus connu sous le nom de VANESTARRE. Tu te trouve sur mon petit réseau social. <br/>
+    J'éspère que tu aimes me donner de l'argent car j'aime ça. <br/>
+    Des bisous trop <em>swag</em>
+</section>
 
 </header>
 
