@@ -4,6 +4,14 @@
     Des bisous trop <em>swag</em>
 </section>
 
+<?php
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin')
+    echo '<form action="ajouter_msg.php" method="post">
+   <button type="submit">Ajouter un message</button>
+</form>';
+?>
+
+
 <!-- Formulaire de contact-->
 
 <section>

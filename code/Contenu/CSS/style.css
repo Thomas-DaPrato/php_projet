@@ -22,7 +22,7 @@ body {
 }
 
 .nav-bar {
-    height: auto;
+    height: 150px;
     width: 100%;
     background-color: #ffacac;
     display: flex;
@@ -40,30 +40,11 @@ a {
     color: black;
 }
 
-a.lien_menu {
-    font-size: 25px;
-}
-a.lien_menu:hover {
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 9px;
+
+a.lien_tag {
+    color: rebeccapurple;
 }
 
-ul.menu {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    list-style-type: none;
-    margin : 0;
-    padding : 0;
-}
-
-li.menu_liste {
-    margin : auto;
-    display: block;
-    border-radius: 10px;
-    background-image: linear-gradient(to right, #F2C65E 0%, #FCAC54 50%, #DD7604 100%);
-}
 
 .container_msg {
     display: flex;
@@ -72,11 +53,13 @@ li.menu_liste {
 }
 
 .msg {
-    border-width: 1px;
-    border-style: solid;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
     height: auto;
     width: auto;
     margin : 10px;
+    background-color: #D56F60;
 }
 
 footer {
