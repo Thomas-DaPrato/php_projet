@@ -4,7 +4,7 @@
 class ControleurCompte
 {
     public function Afficher() {
-        Vue::montrer('vueCompte', array());
+        Vue::montrer('Connexion_et_inscription/vueCompte', array());
     }
 
     public function Deconnexion() {
@@ -19,13 +19,13 @@ class ControleurCompte
             $compte->SupprimerCompte();
             $_SESSION['role'] = null;
             $_SESSION['pseudo'] = null;
-            Vue::montrer('vueSuppressionTerminee', array());
+            Vue::montrer('Connexion_et_inscription/vueSuppressionTerminee', array());
         }
         else if (isset($_POST['verif'])) {
-            Vue::montrer('vueSuppression', array('erreur' => 'Le pseudo rentré n\'est pas valide'));
+            Vue::montrer('Connexion_et_inscription/vueSuppression', array('erreur' => 'Le pseudo rentré n\'est pas valide'));
         }
         else {
-            Vue::montrer('vueSuppression', array('erreur' => ''));
+            Vue::montrer('Connexion_et_inscription/vueSuppression', array('erreur' => ''));
         }
     }
 }

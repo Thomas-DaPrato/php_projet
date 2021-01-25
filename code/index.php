@@ -18,4 +18,4 @@ $O_controleur->executer();
 $contenuPourAffichage = Vue::recupererContenuTampon();
 
 // On affiche le contenu dans la partie body du gabarit général
-Vue::montrer('patron', array('body' => $contenuPourAffichage));
+Vue::montrer('standard/patron', array('body' => $contenuPourAffichage));

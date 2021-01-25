@@ -22,7 +22,7 @@ body {
 }
 
 .nav-bar {
-    height: 150px;
+    height: auto;
     width: 100%;
     background-color: #ffacac;
     display: flex;
@@ -40,9 +40,22 @@ a {
     color: black;
 }
 
-
 a.lien_tag {
     color: rebeccapurple;
+}
+
+
+a.lien_compte {
+    display: block;
+    border-radius: 10px;
+    background-color: #EC7220;
+    padding: 5px;
+    position: relative;
+    top : 10px;
+}
+
+.compte {
+    display: inline-block;
 }
 
 
