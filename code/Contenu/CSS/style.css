@@ -71,6 +71,8 @@ footer {
 }
 
 .pseudo {
+    position: absolute;
+    right: 50px;
     background-color : #D361B4;
     border-radius: 10px 0 0 10px;
     height: 1em;
