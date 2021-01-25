@@ -20,4 +20,15 @@ final class ControleurAccueil
             move_uploaded_file($_FILES['image']['tmp_name'], $cible);// déplacer l'image téléchargée dans le dossier: Bdd_images
     }
 
+    public function AfficherPDC()
+    {
+        Vue::montrer('vuePDC', array());
+    }
+
+    public function AfficherCG()
+    {
+        Vue::montrer('vueCG', array());
+    }
+
+
 }

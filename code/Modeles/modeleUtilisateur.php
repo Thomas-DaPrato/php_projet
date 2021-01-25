@@ -19,36 +19,43 @@ final class modeleUtilisateur {
     }
 
     public function Inscription ($pseudo, $email, $mdp) {
+        //Ouverture de la bdd
         $bdd = new Bdd();
-        if ($bdd->executerReq('SELECT COUNT(*) FROM utilisateur WHERE mail = \''.$email.'\'')->fetch(PDO::FETCH_ASSOC)['COUNT(*)'] != 0) {
+        $bdd->getBdd();
+        //Verification de l'unicité du pseudo et du mail
+        $dejainscrit = false;
+        $stmt = $bdd->prepare('SELECT COUNT(*) FROM utilisateur WHERE mail = ?');
+        $stmt->execute(array($email));
+        if ($stmt->fetch(PDO::FETCH_ASSOC)['COUNT(*)'] != 0) {
             header('Location: index.php?c=Utilisateur&a=AfficherInscription&etat=mailinvalide');
+            $dejainscrit = true;
         }
-        else if ($bdd->executerReq('SELECT COUNT(*) FROM utilisateur WHERE pseudo = \''.$pseudo.'\'')->fetch(PDO::FETCH_ASSOC)['COUNT(*)'] != 0) {
+        $stmt = $bdd->prepare('SELECT COUNT(*) FROM utilisateur WHERE pseudo = ?');
+        $stmt->execute(array($pseudo));
+        if (!$dejainscrit && $stmt->fetch(PDO::FETCH_ASSOC)['COUNT(*)'] != 0) {
             header('Location: index.php?c=Utilisateur&a=afficherInscription&etat=pseudoinvalide');
+            $dejainscrit = true;
         }
-        else {
-            $requete = 'INSERT INTO utilisateur (mail, pseudo, mdp, role) VALUES (\''
-                . $email . '\', \''
-                . $pseudo . '\', \''
-                . md5($mdp) . '\', \''
-                . 'membre' . '\')';
-            if (!$bdd->executerReq($requete)) {
-                header('Location: index.php?c=Utilisateur&a=afficherInscription&etat=echec');
-            } else {
-                $_SESSION['role'] = 'membre';
-                $_SESSION['pseudo'] = $pseudo;
-                $connected = true;
-                header('Location: index.php?c=Utilisateur&a=InscriptionTerminee');
-            }
+
+        //Inscription si les pseudo et mail sont uniques
+        if (!$dejainscrit) {
+            $stmt = $bdd->prepare('INSERT INTO utilisateur (mail, pseudo, mdp, role) VALUES (?, ?, ?, ?)');
+            $stmt->execute(array($email, $pseudo, md5($mdp), 'membre'));
+            $_SESSION['role'] = 'membre';
+            $_SESSION['pseudo'] = $pseudo;
+            $connected = true;
+            header('Location: index.php?c=Utilisateur&a=InscriptionTerminee');
         }
 
     }
 
     public function connexion($pseudo, $mdp) {
         $bdd = new Bdd();
-        $bddresult = $bdd->executerReq('SELECT mdp, role FROM utilisateur WHERE pseudo =\'' .$pseudo.'\'');
+        $bdd->getBdd();
+        $stmt = $bdd->prepare('SELECT mdp, role FROM utilisateur WHERE pseudo =?');
+        $stmt->execute(array($pseudo));
         $connected = false;
-        while($dbRow = $bddresult->fetch(PDO::FETCH_ASSOC)) {
+        while($dbRow = $stmt->fetch(PDO::FETCH_ASSOC)) {
             if (md5($mdp) == $dbRow['mdp']) {
                 $_SESSION['role'] = $dbRow['role'];
                 $_SESSION['pseudo'] = $pseudo;

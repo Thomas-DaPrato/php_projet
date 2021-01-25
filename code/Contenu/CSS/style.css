@@ -13,50 +13,38 @@ html{
 body {
     font-family: Arial;
     height: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 0;
     background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+    border-radius: 15px;
 
 }
 
 .nav-bar {
-    height: 100px;
+    height: 150px;
     width: 100%;
     background-color: #ffacac;
     display: flex;
     flex-direction: row;
 }
 
-section {
-    background: url(https://i.imgur.com/Dk3XeQE.jpg) no-repeat;
+.a_propos {
+    background-image: url(https://i.imgur.com/Dk3XeQE.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
-    height: calc(100vh - 80px)
-}
 
+}
 a {
     text-decoration: none;
-    font-size: 25px;
     color: black;
 }
-a:hover {
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 9px;
+
+
+a.lien_tag {
+    color: rebeccapurple;
 }
 
-ul.menu {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    list-style-type: none;
-    margin : 0;
-    padding : 0;
-}
-
-li.menu_liste {
-    margin : auto;
-    display: block;
-    border-radius: 10px;
-    background-image: linear-gradient(to right, #F2C65E 0%, #FCAC54 50%, #DD7604 100%);
-}
 
 .container_msg {
     display: flex;
@@ -65,12 +53,15 @@ li.menu_liste {
 }
 
 .msg {
-    border-width: 1px;
-    border-style: solid;
-    height: 20px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    height: auto;
     width: auto;
     margin : 10px;
+    background-color: #D56F60;
 }
+
 
 /* Poster une image + message */
 
@@ -102,6 +93,22 @@ img{
     margin: 5px;
     width: 300px;
     height: 140px;
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position : fixed;
+    bottom: 0;
+}
+
+.pseudo {
+    background-color : #D361B4;
+    border-radius: 10px 0 0 10px;
+    height: 1em;
+    font-size: 25px;
+    padding: 10px;
+
 }
 
 
