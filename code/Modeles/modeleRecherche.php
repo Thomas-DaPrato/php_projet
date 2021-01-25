@@ -5,6 +5,7 @@ require 'Messages.inc.php';
 final class Recherche{
 	private $bdd;
 	private $tag;
+	private $page;
 	
 	public function __construct (){
 		$this->bdd = new Bdd();
@@ -13,10 +14,16 @@ final class Recherche{
 		}else{
 			$this->tag = ' '; 
 		}
+		if(isset($_GET['page'])){
+			$this->page = intval($_GET['page']);
+			if($this->page <= 0)$this->page = 1;
+		}else{
+			$this->page = 1;
+		}
 	}
 	
 	public function triDefaut(){
-		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\'';
+		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\'  LIMIT 10 OFFSET ' . ($this->page - 1)*10 . '';
 		$resultat='';
 		$messages = new Messages();
 		if (!($resultat = $this->bdd->executerReq($querry))){
@@ -49,7 +56,7 @@ final class Recherche{
 	}
 	
 	public function triRecent(){
-		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\' ORDER BY id_msg DESC';
+		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\' ORDER BY id_msg DESC LIMIT 10 OFFSET ' . ($this->page - 1)*10 . '';
 		$resultat='';
 		$messages = new Messages();
 		if (!($resultat = $this->bdd->executerReq($querry))){

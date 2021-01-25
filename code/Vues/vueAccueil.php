@@ -10,6 +10,7 @@
 	<form action="index.php?" method="get">
 		<input type="hidden" name="c" value="Recherche">
 		<input type="hidden" name="a" value="Afficher">
+		<input type="hidden" name="page" value="1">
 		<label><h1>Rechercher</h1></label>
 		<input type="search" name="tag" placeholder="&#946;Tag">
 		<select name="tri">
