@@ -2,7 +2,7 @@
 
 final class ControleurAccueil
 {
-    public function AfficherAccueil()
+    public function Afficher()
     {
         Vue::montrer('vueAccueil', array());
     }
