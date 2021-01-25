@@ -6,6 +6,7 @@
 
     <div class="pseudo" align="right">
         <?php
+
 if (isset($_SESSION['pseudo'])) {
     echo '<a href="index.php?c=Accueil&a=AfficherAccueil">'.$_SESSION['pseudo'].'</a>';
 }
