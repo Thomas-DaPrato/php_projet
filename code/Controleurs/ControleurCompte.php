@@ -25,7 +25,7 @@ class ControleurCompte
             Vue::montrer('vueSuppression', array('erreur' => 'Le pseudo rentré n\'est pas valide'));
         }
         else {
-            Vue::montrer('vueSuppression', array('erreur' => ''));
+            Vue::montrer('vueSuppression', array());
         }
     }
 }
