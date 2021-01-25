@@ -17,4 +17,5 @@ final class ControleurAccueil
         Vue::montrer('vueCG', array());
     }
 
+
 }
