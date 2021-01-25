@@ -11,14 +11,15 @@
     </ul>
     <div class="pseudo" align="right">
         <?php
-if (isset($_SESSION['pseudo'])) {
-    echo $_SESSION['pseudo'];
-}
-else{
-    echo 'Invité';
-}
-?>
-</div>
+        if (isset($_SESSION['pseudo'])) {
+            echo '<a href = index.php?c=Compte>'.$_SESSION['pseudo'].'</a>';
+        }
+        else{
+            echo 'Invité';
+        }
+        ?>
+
+    </div>
 </nav>
 
 
