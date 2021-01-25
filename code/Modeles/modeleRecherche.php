@@ -35,7 +35,7 @@ final class Recherche{
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
 			}
 		}
-		return $messages->getHTML();
+		return $messages->getHTML() . self::getBoutonsPage('defaut');;
 	}
 	
 	private function getMessageByID($id){
@@ -68,7 +68,26 @@ final class Recherche{
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
 			}
 		}
-		return $messages->getHTML();
+		return $messages->getHTML() . self::getBoutonsPage('recent');
+	}
+	
+	private function getBoutonsPage($tri){
+		$html = PHP_EOL . '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1">First</a>' . PHP_EOL;
+		$querry = 'SELECT count(*) FROM tag WHERE texte_tag = \'' . $this->tag . '\'';
+		$nbMessage = intval($this->bdd->executerReq($querry)->fetch(PDO::FETCH_ASSOC)['count(*)']);
+		
+		if($this->page <= 1){
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1" disabled>←</a>' . PHP_EOL;
+		}else{
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval($this->page - 1) . '">←</a>' . PHP_EOL;
+		}
+		if($this->page >= intdiv($nbMessage,10) + 1){
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval(intdiv($nbMessage,10) + 1) . '" disabled>→</a>' . PHP_EOL;
+		}else{
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval($this->page + 1) . '">→</a>' . PHP_EOL;
+		}
+		$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval(intdiv($nbMessage,10) + 1) . '">last</a>' . PHP_EOL;
+		return $html;
 	}
 	
 }

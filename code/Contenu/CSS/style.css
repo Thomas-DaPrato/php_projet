@@ -96,3 +96,8 @@ footer {
 }
 
 
+.bouton_page{
+	border-width: 1px;
+    border-style: solid;
+    margin : 10px;
+}
