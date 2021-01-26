@@ -11,9 +11,29 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin')
 </form>';
 ?>
 
-
-<!-- Formulaire de contact-->
-
+<div class="container_msg">
+<?php require 'Modeles/Messages.inc.php';
+$bdd = new Bdd();
+$querry = 'SELECT id_msg,texte from message';
+$messageEntier = new Messages();
+$message = array();
+$resultat = $bdd->executerReq($querry);
+while ($message = $resultat->fetch(PDO::FETCH_ASSOC))
+{
+    echo '<article class="msg"><br/>',$message['texte'],'<br/><br/>';
+    $querryTag = 'SELECT texte_tag from tag where id_msg='.$message['id_msg'];
+    $resultatTag = $bdd->executerReq($querryTag);
+    $message['tags'] = array();
+    while($texte_tag = $resultatTag->fetch(PDO::FETCH_ASSOC)){
+        $message['tags'][] = $texte_tag['texte_tag'];
+    }
+    foreach ($message['tags'] as $tag) {
+        echo '<a class="lien_tag" href="index.php?c=Recherche&a=Afficher&tag=' . $tag . '&tri=defaut">&#946;' . $tag . '</a>&ensp;';
+    }
+    echo '</article>';
+}
+?>
+</div>
 <section>
 	<form action="index.php?" method="get">
 		<input type="hidden" name="c" value="Recherche">
@@ -28,6 +48,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin')
 	</form>
 </section>
 
+<!-- Formulaire de contact-->
 <h1>Contact</h1>
 <form class="cf" action="#" method="post">
     <div class="moitié-gauche-cf">
