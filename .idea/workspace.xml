@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="333c8e66-b570-43d6-b0be-d80dd1850340" name="Default Changelist" comment="ajout du fichier utils.inc.php">
+      <change afterPath="$PROJECT_DIR$/code/Contenu/Images/emoji_cute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/Contenu/Images/emoji_love.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/Contenu/Images/emoji_swag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/Contenu/Images/emoji_trop_stylé.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/Controleurs/ControleurEmoji.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/Modeles/modeleEmoji.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Contenu/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/Contenu/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Controleurs/ControleurAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/Controleurs/ControleurAccueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Controleurs/ControleurMsg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Modeles/Messages.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/Modeles/Messages.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Modeles/modeleMsg.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Vues/vueAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/code/Vues/vueAccueil.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +63,7 @@
       <workItem from="1610986064956" duration="1287000" />
       <workItem from="1611149554498" duration="1070000" />
       <workItem from="1611578170143" duration="2527000" />
-      <workItem from="1611664337389" duration="4514000" />
+      <workItem from="1611664337389" duration="11732000" />
     </task>
     <task id="LOCAL-00001" summary="ajout du fichier utils.inc.php">
       <created>1610545277024</created>
