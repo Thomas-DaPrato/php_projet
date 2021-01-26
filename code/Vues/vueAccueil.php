@@ -14,8 +14,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin')
 <div class="container_msg">
 <?php require 'Modeles/Messages.inc.php';
 $bdd = new Bdd();
-$querry = 'SELECT id_msg,texte from message';
-$messageEntier = new Messages();
+$querry = 'SELECT id_msg,texte,nb_love,nb_cute,nb_trop_style,nb_swag from message';
 $message = array();
 $resultat = $bdd->executerReq($querry);
 while ($message = $resultat->fetch(PDO::FETCH_ASSOC))
@@ -30,7 +29,20 @@ while ($message = $resultat->fetch(PDO::FETCH_ASSOC))
     foreach ($message['tags'] as $tag) {
         echo '<a class="lien_tag" href="index.php?c=Recherche&a=Afficher&tag=' . $tag . '&tri=defaut">&#946;' . $tag . '</a>&ensp;';
     }
-    echo '</article>';
+    echo '<br/><br/>
+          <form action="index.php?" method="get">
+              <input type="hidden" name="c" value="Emoji">
+		      <input type="hidden" name="a" value="Increment">
+		      <input type="hidden" name="id_msg" value="'.$message['id_msg'].'">
+              <button type="submit" name="incrementEmoji" value="love"><img class="emoji" src="Contenu/Images/emoji_love.png" alt="emoji_love" ></button> :'. $message['nb_love'].'
+              <button type="submit" name="incrementEmoji" value="cute"><img class="emoji" src="Contenu/Images/emoji_cute.png" alt="emoji_cute" ></button> :'. $message['nb_cute'].'
+              <button type="submit" name="incrementEmoji" value="trop_style"><img class="emoji" src="Contenu/Images/emoji_trop_stylé.png" alt="emoji_trop_stylé" ></button> : '. $message['nb_trop_style'].'
+              <button type="submit" name="incrementEmoji" value="swag"><img class="emoji" src="Contenu/Images/emoji_swag.png" alt="emoji_swag" ></button> : '. $message['nb_swag'].'
+          </form>
+            
+          
+          </article>';
+
 }
 ?>
 </div>
