@@ -4,7 +4,7 @@
 <nav class="nav-bar">
     <a href="index.php?c=Accueil&a=Afficher"><img src="Contenu/Images/logo_vanestarre.png" alt="logo"></a>
 
-    <div class="pseudo" align="right">
+    <div class="pseudo">
         <?php
 
 if (isset($_SESSION['pseudo'])) {

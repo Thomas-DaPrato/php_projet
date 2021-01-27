@@ -22,6 +22,7 @@ body {
 }
 
 .nav-bar {
+    position: sticky;
     height: auto;
     width: 100%;
     background-color: #ffacac;
@@ -30,10 +31,7 @@ body {
 }
 
 .a_propos {
-    background-image: url(https://i.imgur.com/Dk3XeQE.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    background-color: #63A6DC;
 }
 a {
     text-decoration: none;
@@ -63,6 +61,7 @@ a.lien_compte {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .msg {
@@ -87,7 +86,7 @@ footer {
 
 .pseudo {
     position: absolute;
-    right: 50px;
+    right: 0px;
     background-color : #D361B4;
     border-radius: 10px 0 0 10px;
     height: 1em;
@@ -102,4 +101,20 @@ footer {
     margin : 5px;
 }
 
+.boutonEmoji {
+    border-radius: 10px;
+    background-color: #788DD8;
+    border: none;
+}
 
+.boutonEmoji:hover{
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.rechercheTag {
+    position: fixed;
+    top : 40%;
+}
