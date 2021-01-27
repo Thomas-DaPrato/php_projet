@@ -22,20 +22,28 @@ final class Recherche{
 		}
 	}
 	
+	
 	public function triDefaut(){
-		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\'  LIMIT 10 OFFSET ' . ($this->page - 1)*10 . '';
-		$resultat='';
+		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = :tagg  LIMIT 10 OFFSET :nbmsg';
+		$resultat = $this->bdd->prepare($querry);
+		$resultat->bindValue(':tagg', (string) $this->tag, PDO::PARAM_STR);
+		$resultat->bindValue(':nbmsg',  (int)($this->page-1) * 10, PDO::PARAM_INT);
+		
 		$messages = new Messages();
-		if (!($resultat = $this->bdd->executerReq($querry))){
+		var_dump($resultat);
+		
+		if (!($resultat->execute())){
+			var_dump($resultat);
 			return  'erreur de requete <br/>' . PHP_EOL .
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
+			var_dump($resultat);
 			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
 			}
 		}
-		return $messages->getHTML() . self::getBoutonsPage('defaut');;
+		return $messages->getHTML() . self::getBoutonsPage('defaut');
 	}
 	
 	private function getMessageByID($id){
