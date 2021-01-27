@@ -5,6 +5,7 @@ require 'Messages.inc.php';
 final class Recherche{
 	private $bdd;
 	private $tag;
+	private $page;
 	
 	public function __construct (){
 		$this->bdd = new Bdd();
@@ -13,22 +14,34 @@ final class Recherche{
 		}else{
 			$this->tag = ' '; 
 		}
+		if(isset($_GET['page'])){
+			$this->page = intval($_GET['page']);
+			if($this->page <= 0)$this->page = 1;
+		}else{
+			$this->page = 1;
+		}
 	}
 	
+	
 	public function triDefaut(){
-		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\'';
-		$resultat='';
+		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = :tagg  LIMIT 10 OFFSET :nbmsg';
+		$resultat = $this->bdd->prepare($querry);
+		$resultat->bindValue(':tagg', (string) $this->tag, PDO::PARAM_STR);
+		$resultat->bindValue(':nbmsg',  (int)($this->page-1) * 10, PDO::PARAM_INT);
+		
 		$messages = new Messages();
-		if (!($resultat = $this->bdd->executerReq($querry))){
+		
+		if (!($resultat->execute())){
 			return  'erreur de requete <br/>' . PHP_EOL .
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
-			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
+			/*while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
-			}
+			}*/
+			$messages->addMessagesById($resultat->fetchAll(PDO::FETCH_COLUMN, 0));
 		}
-		return $messages->getHTML();
+		return $messages->getHTML() . self::getBoutonsPage('defaut');
 	}
 	
 	private function getMessageByID($id){
@@ -49,19 +62,46 @@ final class Recherche{
 	}
 	
 	public function triRecent(){
-		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\' ORDER BY id_msg DESC';
-		$resultat='';
+
+		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = :tagg ORDER BY id_msg DESC LIMIT 10 OFFSET :nbmsg';
+		$resultat = $this->bdd->prepare($querry);
+		$resultat->bindValue(':tagg', (string) $this->tag, PDO::PARAM_STR);
+		$resultat->bindValue(':nbmsg',  (int)($this->page-1) * 10, PDO::PARAM_INT);
+		
 		$messages = new Messages();
-		if (!($resultat = $this->bdd->executerReq($querry))){
+		if (!($resultat->execute())){
 			return  'erreur de requete <br/>' . PHP_EOL .
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
-			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
+			/*while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
-			}
+			}*/
+			$messages->addMessagesById($resultat->fetchAll(PDO::FETCH_COLUMN, 0));
 		}
-		return $messages->getHTML();
+		return $messages->getHTML() . self::getBoutonsPage('recent');
+	}
+	
+	private function getBoutonsPage($tri){
+		$html = PHP_EOL . '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1">First</a>' . PHP_EOL;
+		$querry = 'SELECT count(*) FROM tag WHERE texte_tag = :tagg';
+		$resultat = $this->bdd->prepare($querry);
+		$resultat->bindValue(':tagg', (string) $this->tag, PDO::PARAM_STR);
+		$resultat->execute();
+		$nbMessage = intval($resultat->fetch(PDO::FETCH_ASSOC)['count(*)']);
+		
+		if($this->page <= 1){
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1" disabled>←</a>' . PHP_EOL;
+		}else{
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval($this->page - 1) . '">←</a>' . PHP_EOL;
+		}
+		if($this->page >= intdiv($nbMessage,10) + 1){
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval(intdiv($nbMessage,10) + 1) . '" disabled>→</a>' . PHP_EOL;
+		}else{
+			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval($this->page + 1) . '">→</a>' . PHP_EOL;
+		}
+		$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval(intdiv($nbMessage,10) + 1) . '">last</a>' . PHP_EOL;
+		return $html;
 	}
 	
 }

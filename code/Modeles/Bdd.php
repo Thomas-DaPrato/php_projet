@@ -32,7 +32,7 @@ class Bdd{
 
 
     public function prepare($requete){
-        return self::$_bdd->prepare($requete);
+        return self::getBdd()->prepare($requete);
     }
 
 	public function errorInfo(){
