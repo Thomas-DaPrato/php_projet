@@ -7,6 +7,7 @@ final class ControleurAccueil
         Vue::montrer('vueAccueil', array());
     }
 
+
     public function AjouterMsg() {
         Vue::montrer('vueAjoutMsg',array());
     }
@@ -19,6 +20,7 @@ final class ControleurAccueil
         $tag = null;
         if (isset($_POST['poster'])) {
             // le chemin pour stocker l'image téléchargée
+
             if (isset($_FILES['image']['name'])){
                 $cible = 'Contenu/Bdd_Images/' . basename($_FILES['image']['name']);
                 $image = $_FILES['image']['name']; //récupérer le nom de l'image
