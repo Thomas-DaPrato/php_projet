@@ -6,15 +6,17 @@
 
 <?php
 if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin')
-    echo '<form action="ajouter_msg.php" method="post">
+    echo '<form action="index.php?method="get">
+          <input type="hidden" name="c" value="Accueil">
+		  <input type="hidden" name="a" value="AjouterMsg">
    <button type="submit">Ajouter un message</button>
 </form>';
 ?>
 
 <div class="container_msg">
-<?php require 'Modeles/Messages.inc.php';
+<?php
 $bdd = new Bdd();
-$querry = 'SELECT id_msg,texte,nb_love,nb_cute,nb_trop_style,nb_swag from message';
+$querry = 'SELECT id_msg,texte,nb_love,nb_cute,nb_trop_style,nb_swag from message ORDER BY id_msg desc';
 $message = array();
 $resultat = $bdd->executerReq($querry);
 while ($message = $resultat->fetch(PDO::FETCH_ASSOC))
@@ -29,15 +31,24 @@ while ($message = $resultat->fetch(PDO::FETCH_ASSOC))
     foreach ($message['tags'] as $tag) {
         echo '<a class="lien_tag" href="index.php?c=Recherche&a=Afficher&tag=' . $tag . '&tri=defaut">&#946;' . $tag . '</a>&ensp;';
     }
-    echo '<br/><br/>
-          <form action="index.php?" method="get">
+    $message['images'] = null;
+    $querryImg = 'select image from images where id_msg='.$message['id_msg'];
+    $resultatImg = $bdd->executerReq($querryImg);
+    while($image = $resultatImg->fetch(PDO::FETCH_ASSOC)){
+        $message['images'] = $image['image'];
+    }
+    echo '<br/><br/>';
+    if (!($message['images'] == null)){
+        echo '<img src="Contenu/Bdd_Images/'. $message['images'].'"alt="image" width = 25% height=25%><br/><br/>';
+    }
+    echo '<form action="index.php?" method="get">
               <input type="hidden" name="c" value="Emoji">
 		      <input type="hidden" name="a" value="Increment">
 		      <input type="hidden" name="id_msg" value="'.$message['id_msg'].'">
-              <button type="submit" name="incrementEmoji" value="love"><img class="emoji" src="Contenu/Images/emoji_love.png" alt="emoji_love" ></button> :'. $message['nb_love'].'
-              <button type="submit" name="incrementEmoji" value="cute"><img class="emoji" src="Contenu/Images/emoji_cute.png" alt="emoji_cute" ></button> :'. $message['nb_cute'].'
-              <button type="submit" name="incrementEmoji" value="trop_style"><img class="emoji" src="Contenu/Images/emoji_trop_stylé.png" alt="emoji_trop_stylé" ></button> : '. $message['nb_trop_style'].'
-              <button type="submit" name="incrementEmoji" value="swag"><img class="emoji" src="Contenu/Images/emoji_swag.png" alt="emoji_swag" ></button> : '. $message['nb_swag'].'
+              <button type="submit" class="boutonEmoji" name="incrementEmoji" value="love"><img class="emoji" src="Contenu/Images/emoji_love.png" alt="emoji_love" ></button> :'. $message['nb_love'].'
+              <button type="submit" class="boutonEmoji" name="incrementEmoji" value="cute"><img class="emoji" src="Contenu/Images/emoji_cute.png" alt="emoji_cute" ></button> :'. $message['nb_cute'].'
+              <button type="submit" class="boutonEmoji" name="incrementEmoji" value="trop_style"><img class="emoji" src="Contenu/Images/emoji_trop_stylé.png" alt="emoji_trop_stylé" ></button> : '. $message['nb_trop_style'].'
+              <button type="submit" class="boutonEmoji" name="incrementEmoji" value="swag"><img class="emoji" src="Contenu/Images/emoji_swag.png" alt="emoji_swag" ></button> : '. $message['nb_swag'].'
           </form>
             
           
@@ -47,7 +58,7 @@ while ($message = $resultat->fetch(PDO::FETCH_ASSOC))
 ?>
 </div>
 <section>
-	<form action="index.php?" method="get">
+	<form class="rechercheTag" action="index.php?" method="get">
 		<input type="hidden" name="c" value="Recherche">
 		<input type="hidden" name="a" value="Afficher">
 		<label><h1>Rechercher</h1></label>
@@ -76,18 +87,4 @@ while ($message = $resultat->fetch(PDO::FETCH_ASSOC))
 
 
 
-<div id="content">
-    <form id="form_image" method="post" action="vueAccueil.php" enctype="multipart/form-data">
-        <input type="hidden" name="size" value="1000000">
-        <div>
-            <input type="file" name="image">
-        </div>
-        <div>
-            <textarea name="texte" cols="40" rows="4" placeholder="Ecrire un message"></textarea>
-        </div>
-        <div>
-            <button type="submit" name="poster" >POSTER</button>
-        </div>
-    </form>
-</div>
 
