@@ -36,9 +36,10 @@ final class Recherche{
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
-			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
+			/*while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
-			}
+			}*/
+			$messages->addMessagesById($resultat->fetchAll(PDO::FETCH_COLUMN, 0));
 		}
 		return $messages->getHTML() . self::getBoutonsPage('defaut');
 	}
@@ -73,9 +74,10 @@ final class Recherche{
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
-			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
+			/*while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
-			}
+			}*/
+			$messages->addMessagesById($resultat->fetchAll(PDO::FETCH_COLUMN, 0));
 		}
 		return $messages->getHTML() . self::getBoutonsPage('recent');
 	}
