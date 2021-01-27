@@ -3,7 +3,7 @@
         public function Afficher()
         {
             $traitement = new modeleUtilisateur();
-            Vue::montrer('vueConnexion', array('etat' => isset($_GET['etat'])? $traitement->VerificationErreurs($_GET['etat']) : null));
+            Vue::montrer('Connexion_et_inscription/vueConnexion', array('etat' => isset($_GET['etat'])? $traitement->VerificationErreurs($_GET['etat']) : null));
         }
 
         public function Connexion()
@@ -20,12 +20,12 @@
         public function AfficherInscription()
         {
             $traitement = new modeleUtilisateur();
-            Vue::montrer('vueInscription', array('etat' => isset($_GET['etat'])? $traitement->VerificationErreurs($_GET['etat']) : null));
+            Vue::montrer('Connexion_et_inscription/vueInscription', array('etat' => isset($_GET['etat'])? $traitement->VerificationErreurs($_GET['etat']) : null));
         }
 
         public function InscriptionTerminee()
         {
-            Vue::montrer('vueInscriptionTerminee', array());
+            Vue::montrer('Connexion_et_inscription/vueInscriptionTerminee', array());
         }
 
         public function Inscription()

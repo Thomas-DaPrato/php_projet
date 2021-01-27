@@ -22,7 +22,8 @@ body {
 }
 
 .nav-bar {
-    height: 150px;
+    position: sticky;
+    height: auto;
     width: 100%;
     background-color: #ffacac;
     display: flex;
@@ -30,19 +31,29 @@ body {
 }
 
 .a_propos {
-    background-image: url(https://i.imgur.com/Dk3XeQE.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    background-color: #63A6DC;
 }
 a {
     text-decoration: none;
     color: black;
 }
 
-
 a.lien_tag {
     color: rebeccapurple;
+}
+
+
+a.lien_compte {
+    display: block;
+    border-radius: 10px;
+    background-color: #EC7220;
+    padding: 5px;
+    position: relative;
+    top : 10px;
+}
+
+.compte {
+    display: inline-block;
 }
 
 
@@ -50,6 +61,7 @@ a.lien_tag {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .msg {
@@ -63,36 +75,6 @@ a.lien_tag {
 }
 
 
-/* Poster une image + message */
-
-#content{
-    width: 50%;
-    margin: 20px auto;
-    border: 1px solid #cbcbcb;
-}
-#form_image{
-    width: 50%;
-    margin: 20px auto;
-}
-#form_image div{
-    margin-top: 5px;
-}
-#img_div{
-    width: 80%;
-    padding: 5px;
-    margin: 15px auto;
-    border: 1px solid #cbcbcb;
-}
-#img_div:after{
-    content: "";
-    display: block;
-    clear: both;
-}
-img{
-    float: left;
-    margin: 5px;
-    width: 300px;
-    height: 140px;
 
 footer {
     width: 100%;
@@ -103,6 +85,8 @@ footer {
 }
 
 .pseudo {
+    position: absolute;
+    right: 0px;
     background-color : #D361B4;
     border-radius: 10px 0 0 10px;
     height: 1em;
@@ -111,9 +95,35 @@ footer {
 
 }
 
+.emoji {
+    width: 20px;
+    height: 20px;
+    margin : 5px;
+}
+
+/*
+.boutonEmoji {
+    border-radius: 10px;
+    background-color: #788DD8;
+    border: none;
+}*/
+
 
 .bouton_page{
 	border-width: 1px;
     border-style: solid;
     margin : 10px;
 }
+
+.boutonEmoji:hover{
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.rechercheTag {
+    position: fixed;
+    top : 40%;
+}
+

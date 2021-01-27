@@ -1,4 +1,4 @@
-<?php
+<?php require 'Modeles/modelePoster.php';
 
 final class ControleurAccueil
 {
@@ -7,17 +7,34 @@ final class ControleurAccueil
         Vue::montrer('vueAccueil', array());
     }
 
+
+    public function AjouterMsg() {
+        Vue::montrer('vueAjouterMsg',array());
+    }
+
     public function Poster(){
         // si le bouton est pressé
         $traitement = new Post;
-        if (isset($_POST['poster'])){
+        $texte = null;
+        $image = null;
+        if (isset($_POST['poster'])) {
             // le chemin pour stocker l'image téléchargée
-            $cible = '../Contenu/Bdd_Images/' .basename($_FILES['image']['name']);
-            $image = $_FILES['image']['name']; //récupérer le nom de l'image
-            $texte = $_POST['texte']; //récupérer le texte de l'image
-            Vue::montrer('vueAccueil', array($traitement->));
 
-            move_uploaded_file($_FILES['image']['tmp_name'], $cible);// déplacer l'image téléchargée dans le dossier: Bdd_images
+            echo $_FILES['image']['name'];
+            if (isset($_FILES['image']['name'])){
+                $cible = '../Contenu/Bdd_Images/' . basename($_FILES['image']['name']);
+                $image = $_FILES['image']['name']; //récupérer le nom de l'image
+                move_uploaded_file($_FILES['image']['tmp_name'], $cible);// déplacer l'image téléchargée dans le dossier: Bdd_images
+            }
+            if (isset($_POST['texte']) and strlen($_POST['texte']) > 0 and strlen($_POST['texte']) <= 50){
+                $texte = $_POST['texte']; //récupérer le texte
+            }
+            else {
+                echo 'message inexistante ou trop long';
+            }
+
+            Vue::montrer('vueAccueil', array($traitement->StockerPost($texte, $image)));
+        }
     }
 
     public function AfficherPDC()

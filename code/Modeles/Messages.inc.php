@@ -1,5 +1,6 @@
 <?php
 
+
 class Messages{
 	private $html = ''. PHP_EOL;
 	

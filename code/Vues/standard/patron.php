@@ -7,8 +7,8 @@
         <link rel="shortcut icon" type="image/png" href="Contenu/Images/favicon.png"/> <!-- Favicon -->
     </head>
     <body>
-        <?php Vue::montrer('entete'); ?>
+        <?php Vue::montrer('standard/entete'); ?>
         <?php echo $A_vue['body'] ?>
-        <?php Vue::montrer('pied'); ?>
+        <?php Vue::montrer('standard/pied'); ?>
     </body>
 </html>
