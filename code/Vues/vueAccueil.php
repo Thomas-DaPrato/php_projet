@@ -6,7 +6,7 @@
 
 <?php
 if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin')
-    echo '<form action="index.php?method="get">
+    echo '<form action="index.php?" method="get">
           <input type="hidden" name="c" value="Accueil">
 		  <input type="hidden" name="a" value="AjouterMsg">
    <button type="submit">Ajouter un message</button>

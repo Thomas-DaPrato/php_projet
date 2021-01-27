@@ -9,7 +9,7 @@ final class ControleurAccueil
 
 
     public function AjouterMsg() {
-        Vue::montrer('vueAjouterMsg',array());
+        Vue::montrer('vueAjoutMsg',array());
     }
 
     public function Poster(){
