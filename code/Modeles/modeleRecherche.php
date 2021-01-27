@@ -30,15 +30,12 @@ final class Recherche{
 		$resultat->bindValue(':nbmsg',  (int)($this->page-1) * 10, PDO::PARAM_INT);
 		
 		$messages = new Messages();
-		var_dump($resultat);
 		
 		if (!($resultat->execute())){
-			var_dump($resultat);
 			return  'erreur de requete <br/>' . PHP_EOL .
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
-			var_dump($resultat);
 			while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
 				$messages->addMessage(self::getMessageByID($result['id_msg']));
 			}
@@ -64,10 +61,14 @@ final class Recherche{
 	}
 	
 	public function triRecent(){
-		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = \'' . $this->tag . '\' ORDER BY id_msg DESC LIMIT 10 OFFSET ' . ($this->page - 1)*10 . '';
-		$resultat='';
+
+		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = :tagg ORDER BY id_msg DESC LIMIT 10 OFFSET :nbmsg';
+		$resultat = $this->bdd->prepare($querry);
+		$resultat->bindValue(':tagg', (string) $this->tag, PDO::PARAM_STR);
+		$resultat->bindValue(':nbmsg',  (int)($this->page-1) * 10, PDO::PARAM_INT);
+		
 		$messages = new Messages();
-		if (!($resultat = $this->bdd->executerReq($querry))){
+		if (!($resultat->execute())){
 			return  'erreur de requete <br/>' . PHP_EOL .
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
