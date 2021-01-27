@@ -82,8 +82,11 @@ final class Recherche{
 	
 	private function getBoutonsPage($tri){
 		$html = PHP_EOL . '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1">First</a>' . PHP_EOL;
-		$querry = 'SELECT count(*) FROM tag WHERE texte_tag = \'' . $this->tag . '\'';
-		$nbMessage = intval($this->bdd->executerReq($querry)->fetch(PDO::FETCH_ASSOC)['count(*)']);
+		$querry = 'SELECT count(*) FROM tag WHERE texte_tag = :tagg';
+		$resultat = $this->bdd->prepare($querry);
+		$resultat->bindValue(':tagg', (string) $this->tag, PDO::PARAM_STR);
+		$resultat->execute();
+		$nbMessage = intval($resultat->fetch(PDO::FETCH_ASSOC)['count(*)']);
 		
 		if($this->page <= 1){
 			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1" disabled>←</a>' . PHP_EOL;
