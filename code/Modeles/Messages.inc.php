@@ -10,6 +10,7 @@ class Messages{
 		$this->bdd = new Bdd();
 	}
 	
+	
 	public function addMessage($msg){
 		$this->html .= '<article class="msg">' . PHP_EOL;
 		$this->html .= '<p>' . PHP_EOL . $msg['texte'] . PHP_EOL . '</p>' . PHP_EOL;
@@ -19,15 +20,32 @@ class Messages{
 		foreach($msg['images'] as $img){
 			$this->html .= '<img src="Contenu/Bdd_Images/' . $img .'"alt="image" width = 25% height=25%><br/><br/>' . PHP_EOL;
 		}
-		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_love.png" alt="emoji_love"> : ' . $msg['emoji']['love'] . PHP_EOL; 
-		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_cute.png" alt="emoji_cute"> : ' . $msg['emoji']['cute'] . PHP_EOL; 
-		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_trop_stylé.png" alt="emoji_trop_stylé"> : ' . $msg['emoji']['trop_style'] . PHP_EOL; 
-		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_swag.png" alt="emoji_swag"> : ' . $msg['emoji']['swag'] . PHP_EOL; 
-		$this->html .= '</article>' . PHP_EOL;
+		$this->html .= '<form action="index.php?" method="get">' . PHP_EOL
+              . '<input type="hidden" name="c" value="Emoji">' . PHP_EOL
+              . '<input type="hidden" name="a" value="Increment">' .PHP_EOL
+              . '<input type="hidden" name="id_msg" value="' . $msg['id_msg'] . '">' . PHP_EOL;
+			  
+		$this->html .= '<button type="submit" class="boutonEmoji" name="incrementEmoji" value="love">' . PHP_EOL;
+		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_love.png" alt="emoji_love"> : ' . $msg['emoji']['love'] . PHP_EOL . '</button>' . PHP_EOL; 
+		
+		$this->html .= '<button type="submit" class="boutonEmoji" name="incrementEmoji" value="cute">' . PHP_EOL;
+		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_cute.png" alt="emoji_cute"> : ' . $msg['emoji']['cute'] . PHP_EOL . '</button>' . PHP_EOL; 
+		
+		$this->html .= '<button type="submit" class="boutonEmoji" name="incrementEmoji" value="trop_style">' . PHP_EOL;
+		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_trop_stylé.png" alt="emoji_trop_stylé"> : ' . $msg['emoji']['trop_style'] . PHP_EOL . '</button>' . PHP_EOL; 
+		
+		$this->html .= '<button type="submit" class="boutonEmoji" name="incrementEmoji" value="swag">' . PHP_EOL;
+		$this->html .= '<img class="emoji" src="Contenu/Images/emoji_swag.png" alt="emoji_swag"> : ' . $msg['emoji']['swag'] . PHP_EOL . '</button>' . PHP_EOL; 
+		
+		
+		$this->html .= '</form>' . PHP_EOL .'</article>' . PHP_EOL;
 	}
 	
 	public function getMessageById($id){
 		$message = array();
+		
+		$message['id_msg'] = $id;
+		
 		$querryMsg = 'select texte from message where id_msg = \'' . $id . '\'';
 		$res = $this->bdd->executerReq($querryMsg);
 		$message['texte'] = $res->fetch(PDO::FETCH_ASSOC)['texte'];
