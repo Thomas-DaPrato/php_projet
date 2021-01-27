@@ -1,10 +1,14 @@
-<?php require 'Modeles/modelePoster.php';
+<?php 
+require 'Modeles/modelePoster.php';
+require 'Modeles/modeleAccueil.php';
 
 final class ControleurAccueil
 {
     public function Afficher()
     {
-        Vue::montrer('vueAccueil', array());
+		$O_accueil = new ModeleAccueil();
+        Vue::montrer('vueAccueil', array('corps' => $O_accueil->getHTML()));
+		//Vue::montrer('vueRecherche', array('messages' => call_user_func_array(array($recherche, $tri),array())));
     }
 
 

@@ -104,10 +104,18 @@ footer {
     margin : 5px;
 }
 
+/*
 .boutonEmoji {
     border-radius: 10px;
     background-color: #788DD8;
     border: none;
+}*/
+
+
+.bouton_page{
+	border-width: 1px;
+    border-style: solid;
+    margin : 10px;
 }
 
 .boutonEmoji:hover{
