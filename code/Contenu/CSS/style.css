@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 /* Responsive tel*/
 @media screen and (max-width: 650px) {
     ul.menu {
@@ -10,13 +11,18 @@ html{
 
 }
 body {
-    font-family: Arial;
+    font-family: "Book Antiqua";
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 0;
     background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
     border-radius: 15px;
 
+}
+header {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
 }
 
 .nav-bar {
@@ -27,6 +33,11 @@ body {
     display: flex;
     flex-direction: row;
     top: 0px;
+}
+
+.logo{
+    width: 160px;
+    height: 160px;
 }
 
 .a_propos {
@@ -110,49 +121,41 @@ footer {
 }
 
 
-.boutonEmoji {
+.boutonEmoji , .loupe , .btn_ajout_msg{
     border-radius: 10px;
     background-color: #788DD8;
     border: none;
 }
 
+.boutonEmoji:hover , .loupe:hover , .btn_ajout_msg:hover{
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
 
+.container_btn_page {
+    display: flex;
+    flex-direction: row;
+
+}
 .bouton_page{
 	border-width: 1px;
     border-style: solid;
     margin : 10px;
 }
 
-.boutonEmoji:hover{
-    border: black;
-    border-width: 1px;
-    border-style: solid;
-    cursor: pointer;
-}
+
 
 .rechercheTag {
-    position: fixed;
-    top : 400px;
-    left: 100px;
+    position: absolute;
+    top : 50px;
+    left: 43%;
 }
 
 .image_msg {
     width : 25% ;
     height : 25%;
-}
-
-.btn_ajout_msg
-{
-    border-radius: 10px;
-    background-color: #788DD8;
-    border: none;
-}
-
-.btn_ajout_msg:hover {
-    border: black;
-    border-width: 1px;
-    border-style: solid;
-    cursor: pointer;
 }
 
 .image_msg {

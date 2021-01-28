@@ -88,7 +88,7 @@ final class Recherche{
 		Génére un code html contenant des boutons permettant de changé de page
 	*/
 	private function getBoutonsPage($tri){
-		$html = PHP_EOL . '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1">First</a>' . PHP_EOL;
+		$html = PHP_EOL . '<div class="container_btn_page">'.PHP_EOL.'<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1">First</a>' . PHP_EOL;
 		$querry = 'SELECT count(*) FROM tag WHERE texte_tag = :tagg';
 		$resultat = $this->bdd->prepare($querry);
 		$resultat->bindValue(':tagg', (string) $this->tag, PDO::PARAM_STR);
@@ -105,7 +105,7 @@ final class Recherche{
 		}else{
 			$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval($this->page + 1) . '">→</a>' . PHP_EOL;
 		}
-		$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval(intdiv($nbMessage,10) + 1) . '">last</a>' . PHP_EOL;
+		$html .= '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=' . strval(intdiv($nbMessage,10) + 1) . '">last</a>' . PHP_EOL . '</div>' . PHP_EOL;
 		return $html;
 	}
 	
