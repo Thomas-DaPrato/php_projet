@@ -5,7 +5,7 @@
         if (isset($A_vue['erreur'])) {
             echo $A_vue['erreur'];
         }
-        ?>
+        ?> <!-- Recupération d'une eventuelle erreur-->
     </div>
     <input type="text" name="verif" placeholder="Votre pseudo">
     <input type="submit" name="submit">

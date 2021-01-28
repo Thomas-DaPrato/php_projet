@@ -2,30 +2,34 @@
 final class Emoji
 {
     private $bdd;
-    private $querry = 'update message set ';
+    private $querry = 'INSERT INTO reaction VALUES (\'';
 
     public function __construct (){
         $this->bdd = new Bdd();
-
+        $this->querry .= $_SESSION['pseudo'] .'\',';
     }
     public function addLove($id_msg)
+    //ajoute un emoji love à la base de données
     {
-        $this->querry .= 'nb_love = nb_love+1 where id_msg='.$id_msg;
+        $this->querry .= '\''.$id_msg.'\',\'love\')';
         $this->bdd->executerReq($this->querry);
     }
 
     public function addCute($id_msg) {
-        $this->querry .= 'nb_cute = nb_cute+1 where id_msg='.$id_msg;
+    //Ajoute un emoji cute
+        $this->querry .= '\''.$id_msg.'\',\'cute\')';
         $this->bdd->executerReq($this->querry);
     }
 
     public function addTrop_style($id_msg) {
-        $this->querry .= 'nb_trop_style = nb_trop_style+1 where id_msg='.$id_msg;
+    //Ajoute un emoji TropStyle
+        $this->querry .= '\''.$id_msg.'\',\'trop_style\')';
         $this->bdd->executerReq($this->querry);
     }
 
     public function addSwag($id_msg) {
-        $this->querry .= 'nb_swag = nb_swag+1 where id_msg='.$id_msg;
+    //Ajoute un emoji swag
+        $this->querry .= '\''.$id_msg.'\',\'swag\')';
         $this->bdd->executerReq($this->querry);
     }
 }

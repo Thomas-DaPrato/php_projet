@@ -6,7 +6,7 @@ class Bdd{
     // INSTANCIE LA CONNEXION A LA BDD
     private static function setBdd(){
 
-        self::$_bdd = new PDO('mysql:host=localhost;dbname=projet_web_bd;charset=utf8','root', '');
+        self::$_bdd = new PDO('mysql:host=mysql-vanestarre-officielle.alwaysdata.net;dbname=vanestarre-officielle_bdd;charset=utf8','225221_php', 'Qe85q7PUy');
         self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 
@@ -30,11 +30,12 @@ class Bdd{
         return $resultat;
     }
 
-
+    //Equivalent de la fonction prepare permettant les prepared statement
     public function prepare($requete){
         return self::getBdd()->prepare($requete);
     }
 
+    //Equivalent de la fonction errorInfo
 	public function errorInfo(){
 		return self::$_bdd->errorInfo();
 	}
