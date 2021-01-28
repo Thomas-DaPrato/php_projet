@@ -73,12 +73,12 @@ Pour sécuriser la base de données, le système de prepared statements a été 
 ## Identifiants de connexion 
 
 - Du site Web :
-Compte test :
-Compte administration :
+Compte test : pseudo: leDieuBilly, mdp: TheGod36
+Compte administration : pseudo: Vanestarre, mdp: Vanestarre16
 
-- Base de données :
+- Base de données : hote : mysql-vanestarre-officielle.alwaysdata.net, base de donnée: vanestarre-officielle_bdd, utilisateur : 225221, mdp: Qe85q7PUy
 
-- Hébergement :
+- Hébergement : email : daprato.thomas05@gmail.com, mdp: Vanestarre16
 
-- Système de version : 
+- Système de version : https://github.com/Thomas-DaPrato/php_projet
 

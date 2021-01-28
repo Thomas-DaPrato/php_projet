@@ -132,12 +132,26 @@ footer {
 
 .rechercheTag {
     position: fixed;
-    top : 50px;
-    left: 43%;
+    top : 400px;
+    left: 100px;
 }
 
 .image_msg {
     width : 25% ;
     height : 25%;
+}
+
+.btn_ajout_msg
+{
+    border-radius: 10px;
+    background-color: #788DD8;
+    border: none;
+}
+
+.btn_ajout_msg:hover {
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
 }
 

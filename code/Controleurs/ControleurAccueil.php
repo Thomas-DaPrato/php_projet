@@ -40,8 +40,8 @@ final class ControleurAccueil
             else {
                 echo 'message inexistante ou trop long';
             }
-
-            Vue::montrer('vueAccueil', array($traitement->StockerPost($texte, $image,$tag)));
+            $traitement->StockerPost($texte, $image,$tag);
+            self::Afficher();
         }
     }
 

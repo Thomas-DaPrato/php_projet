@@ -1,5 +1,6 @@
 <?php
 require 'Modeles/modeleEmoji.php';
+require 'Controleurs/ControleurAccueil.php';
 class ControleurEmoji {
 
     //Fonction appelée lorsque quelqu'un veut réagir avec un emoji
@@ -10,6 +11,7 @@ class ControleurEmoji {
         {
             $emoji = null;
             $id_msg = null;
+            $afficher = new ControleurAccueil();
 
             if (isset($_GET['incrementEmoji'])){
                 $emoji = $_GET['incrementEmoji'];
@@ -37,7 +39,7 @@ class ControleurEmoji {
                     echo 'pas possible';
             }
 
-            Vue::montrer('vueAccueil', array());
+            $afficher->Afficher();
         }
         else {
             echo 'connectez vous pour réagir !!';
