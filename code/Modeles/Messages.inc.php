@@ -6,20 +6,27 @@ class Messages{
 	private $html = ''. PHP_EOL;
 	private $bdd;
 	
+	
+	
 	public function __construct(){
 		$this->bdd = new Bdd();
 	}
 	
 	
+	/*
+		Permet d'ajouter un message (un tableau associatif) dans le code html
+	*/
 	public function addMessage($msg){
 		$this->html .= '            <article class="msg">' . PHP_EOL;
 		$this->html .= '                <p>' . PHP_EOL . '                    '. $msg['texte'] . PHP_EOL . '                </p>' . PHP_EOL . PHP_EOL;
-		foreach($msg['tags'] as $tag){
-			$this->html .= '                    <a class="lien_tag" href="index.php?c=Recherche&a=Afficher&tag=' . $tag . '&tri=defaut">&#946;' . $tag . '</a>&ensp;' . PHP_EOL;
-		}
+
+
 		foreach($msg['images'] as $img){
 			$this->html .= '                <img class="image_msg" src="Contenu/Bdd_Images/' . $img .'" alt="image" ><br/><br/>' . PHP_EOL;
 		}
+        foreach($msg['tags'] as $tag){
+            $this->html .= '                    <a class="lien_tag" href="index.php?c=Recherche&a=Afficher&tag=' . $tag . '&tri=defaut">&#946;' . $tag . '</a>&ensp;' . PHP_EOL . PHP_EOL;
+        }
 		$this->html .= '                <form action="index.php?" method="get">' . PHP_EOL
               . '                   <input type="hidden" name="c" value="Emoji">' . PHP_EOL
               . '                   <input type="hidden" name="a" value="Increment">' .PHP_EOL
@@ -41,6 +48,9 @@ class Messages{
 		$this->html .= '                </form>' . PHP_EOL .'           </article>' . PHP_EOL . PHP_EOL;
 	}
 	
+	/*
+		Renvoie un message (un tableau associatif) à partir de l'id donné
+	*/
 	public function getMessageById($id){
 		$message = array();
 		
@@ -90,12 +100,18 @@ class Messages{
 		return $message;
 	}
 	
+	/*
+		Permet d'ajouter plusieur messages dans le code html en passant un tableau d'id
+	*/
 	public function addMessagesById($ids_msg){
 		foreach($ids_msg as $id){
 			self::addMessage(self::getMessageById($id));
 		}
 	}
 
+	/*
+		Renvoie le code html généré
+	*/
 	public function getHTML(){
 		return $this->html;
 	}
