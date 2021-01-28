@@ -28,7 +28,6 @@ final class Controleur
     public function executer()
     {
         session_start();
-        //fonction de rappel de notre controleur cible (ControleurHelloworld pour notre premier exemple)
         call_user_func_array(array(new $this->_A_urlDecortique['controleur'],
             $this->_A_urlDecortique['action']), array());
 

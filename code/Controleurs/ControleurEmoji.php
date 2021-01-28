@@ -2,8 +2,10 @@
 require 'Modeles/modeleEmoji.php';
 class ControleurEmoji {
 
+    //Fonction appelée lorsque quelqu'un veut réagir avec un emoji
     public function Increment()
     {
+        //Verification de la connexion à un compte
         if (isset($_SESSION['pseudo']))
         {
             $emoji = null;

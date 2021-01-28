@@ -30,11 +30,12 @@ class Bdd{
         return $resultat;
     }
 
-
+    //Equivalent de la fonction prepare permettant les prepared statement
     public function prepare($requete){
         return self::getBdd()->prepare($requete);
     }
 
+    //Equivalent de la fonction errorInfo
 	public function errorInfo(){
 		return self::$_bdd->errorInfo();
 	}

@@ -1,6 +1,7 @@
 <?php
 final class modeleUtilisateur {
     public function VerificationErreurs($etat){
+        //Transforme un erreur en un message correspondant
         if($etat == 'mailinvalide') {
             return 'Le mail entré est déjà utilisé';
         }
@@ -22,7 +23,7 @@ final class modeleUtilisateur {
         //Ouverture de la bdd
         $bdd = new Bdd();
         $bdd->getBdd();
-        //Verification de l'unicité du pseudo et du mail
+        //Verification de l'éventuelle existence d'un compte avec le même pseudo/mail'
         $dejainscrit = false;
         $stmt = $bdd->prepare('SELECT COUNT(*) FROM utilisateur WHERE mail = ?');
         $stmt->execute(array($email));
