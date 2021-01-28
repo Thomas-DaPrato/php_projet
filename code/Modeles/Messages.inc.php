@@ -6,11 +6,16 @@ class Messages{
 	private $html = ''. PHP_EOL;
 	private $bdd;
 	
+	
+	
 	public function __construct(){
 		$this->bdd = new Bdd();
 	}
 	
 	
+	/*
+		Permet d'ajouter un message (un tableau associatif) dans le code html
+	*/
 	public function addMessage($msg){
 		$this->html .= '<article class="msg">' . PHP_EOL;
 		$this->html .= '<p>' . PHP_EOL . $msg['texte'] . PHP_EOL . '</p>' . PHP_EOL;
@@ -41,6 +46,9 @@ class Messages{
 		$this->html .= '</form>' . PHP_EOL .'</article>' . PHP_EOL;
 	}
 	
+	/*
+		Renvoie un message (un tableau associatif) à partir de l'id donné
+	*/
 	public function getMessageById($id){
 		$message = array();
 		
@@ -90,12 +98,18 @@ class Messages{
 		return $message;
 	}
 	
+	/*
+		Permet d'ajouter plusieur messages dans le code html en passant un tableau d'id
+	*/
 	public function addMessagesById($ids_msg){
 		foreach($ids_msg as $id){
 			self::addMessage(self::getMessageById($id));
 		}
 	}
 
+	/*
+		Renvoie le code html généré
+	*/
 	public function getHTML(){
 		return $this->html;
 	}

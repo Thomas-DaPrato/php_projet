@@ -8,7 +8,7 @@
 <div class="container_msg">
 
 <?php
-echo $A_vue['corps'];
+if(isset($A_vue['corps']))echo $A_vue['corps'];
 ?>
 </div>
 <section>
