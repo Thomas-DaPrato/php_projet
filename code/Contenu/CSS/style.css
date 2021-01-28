@@ -30,8 +30,13 @@ body {
 }
 
 .a_propos {
-    background-color: #63A6DC;
+    background-color: wheat;
+    font-size: 20px;
+    text-align: center;
+    padding: 1%;
+    margin-bottom: 2em;
 }
+
 a {
     text-decoration: none;
     color: black;

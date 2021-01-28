@@ -1,7 +1,9 @@
 <section class="a_propos">
-    Coucou je m'appelle Vanessa MAUREL, plus connu sous le nom de VANESTARRE. Tu te trouve sur mon petit réseau social. <br/>
-    J'éspère que tu aimes me donner de l'argent car j'aime ça. <br/>
-    Des bisous trop <em>swag</em>
+    <br/>
+    Salut, c'est Vanessa Maurel plus connue sous le nom de Vanéstarre !<br/>
+    Tu te trouves sur mon réseau social. <br/>
+    <em>Enjoy !</em>
+    </p>
 </section>
 
 
