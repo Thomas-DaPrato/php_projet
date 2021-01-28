@@ -1,0 +1,79 @@
+| Projet PHP - VANESTARRE |
+
+Membres du groupe : Cindy BRAKCHI – Thomas DA-PRATO – Raphaël LESBROS – Erwann LUBRANO
+Lien vers le sujet : http://mickael-martin-nevot.com/univ-amu/iut/dut-informatique/programmation-web-cote-serveur/?s24-projet.pdf
+URL du site : vanestarre-officielle.alwaysdata.net
+
+## Présentation 
+
+L’objectif a été de réaliser un site (type réseau social) pour Vanessa Maurel sur lequel seulement elle à la possibilité de poster 
+un message avec éventuellement des images. Les utilisateurs « invité » (par défaut sur le site) peuvent seulement consulter les 
+posts de Vanessa. Les utilisateurs qui le souhaitent ont la possibilité de créer un compte, ce qui les fera passer du rôle « invité »
+à « membre ». Le rôle « membre » permet d’avoir la possibilité de réagir aux posts de Vanessa à l’aide d’émojis (love, cute, trop stylé, swag). 
+Les utilisateurs peuvent rechercher des tags associés à des posts via la barre de recherche de tag.
+
+## Listes des différentes fonctionnalités du site :
+
+__ Structure du site __
+
+- Interface d’accueil 
+- Interface d’inscription et de connexion
+- Page de conditions générales d’utilisation et page de politique de confidentialité du site
+
+__ Faire un post depuis le compte « Admin » __
+
+- Le messages ne doit pas dépasser 50 caractères 
+- Il y a la possibilité d’ajouter ou non des images 
+- Des mots tagués peuvent être tagués avec le « β ».
+
+__ Rechercher de tag __
+
+- Une barre de recherche de tag qui permet de retrouver les posts contenant les mots tagués. 
+
+__ Réagir à un message __
+
+- Un post contient 4 emojis : love,cute,trop stylé,swag
+- Seuls les « membres » peuvent réagir à un message (une réaction possible par message) 
+
+__ Création d’un compte __
+
+- Interface d’inscription et de connexion. 
+- L’utilisateur doit inscrire un pseudo, un mail et un mot de passe (sécurisé avec la fonction de hachage « md5 ») afin de s’inscrire et d’obtenir le rôle « membre »
+- Pour se connecter l’utilisateur doit entrer l’adresse email et le mot de passe utilisés lors de l’inscription 
+- L’utilisateur peut consulter les informations de son compte et à la possibilité de supprimer son compte à tout moment. 
+
+__ Système de rôle (3 trois possibles) __
+
+1. « Visiteur » (L’utilisateur n’a pas de compte)
+- Accès en lecture des posts présent sur le site 
+
+2. « Membre » (L’utilisateur a un compte)
+
+- Accès en lecture des posts présents sur le site
+- Possibilité de réagir un à post
+
+3. « Admin » (Correspond au compte administrateur)
+- Créer un post 
+
+## Choix techniques 
+
+Editeur d’utilisé : PHPStrom
+Logiciel d’hébergement du site en local : Laragon, WampServeur 
+Logiciel de base de données : HeididiSQL, PHPMyAdmin 
+
+## Configuration logicielle minimale et conseillée :
+
+- Appareils ayant accès à internet et possédant un navigateur de recherche.
+
+## Identifiants de connexion 
+
+- Du site Web :
+Compte test :
+Compte administration :
+
+- Base de données :
+
+- Hébergement :
+
+- Système de version : 
+

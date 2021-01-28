@@ -1,7 +1,7 @@
-<script src="Contenu/Scripts/inscription.js"></script>
+<script src="Contenu/Scripts/inscription.js"></script> <!-- Appel d'un script vérifiant que le mot de passe etsa vérification sont identiques-->
 
 <fieldset>
-    <b><?php echo $A_vue['etat'] ?></b>
+    <b><?php echo $A_vue['etat'] ?></b> <!-- Recupération d'un éventuel message d'erreur-->
     <h1 class="title_co">S'inscrire</h1>
     <form action="index.php?c=Utilisateur&a=Inscription" method="post">
         <input type="text" name="pseudo" placeholder='Pseudo' required/><br>
