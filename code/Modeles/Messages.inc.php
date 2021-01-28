@@ -18,6 +18,7 @@ class Messages{
 	*/
 	public function addMessage($msg){
 		$this->html .= '            <article class="msg">' . PHP_EOL;
+		$this->html .= '                <h6>titre</h6>'.PHP_EOL;
 		$this->html .= '                <p>' . PHP_EOL . '                    '. $msg['texte'] . PHP_EOL . '                </p>' . PHP_EOL . PHP_EOL;
 
 

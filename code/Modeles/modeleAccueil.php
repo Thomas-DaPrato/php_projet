@@ -7,11 +7,11 @@ final class ModeleAccueil{
 	private $bdd;
 	public function __construct (){
 		if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
-			$this->html .= PHP_EOL . '<form  action="index.php?" method="get">' . PHP_EOL
-				. '<input type="hidden" name="c" value="Accueil">' . PHP_EOL
-				. '<input type="hidden" name="a" value="AjouterMsg">' . PHP_EOL
-				. '<button class="btn_ajout_msg" type="submit">Ajouter un message</button>' . PHP_EOL
-				. '</form>' . PHP_EOL;
+			$this->html .= PHP_EOL . '                <form  action="index.php?" method="get">' . PHP_EOL
+				. '                     <input type="hidden" name="c" value="Accueil">' . PHP_EOL
+				. '                     <input type="hidden" name="a" value="AjouterMsg">' . PHP_EOL
+				. '                     <button class="btn_ajout_msg" type="submit">Ajouter un message</button>' . PHP_EOL
+				. '                </form>' . PHP_EOL;
 		}
 		$this->bdd = new Bdd();
 		self::displayMessages();
