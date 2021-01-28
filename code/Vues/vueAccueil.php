@@ -8,11 +8,15 @@
 <div class="container_msg">
 
 <?php
-echo $A_vue['corps'];
+if (isset($A_vue['corps']))
+{
+    echo $A_vue['corps'];
+}
+
 ?>
 </div>
-<section>
-	<form class="rechercheTag" action="index.php?" method="get">
+<section class="rechercheTag">
+	<form  action="index.php?" method="get">
 		<input type="hidden" name="c" value="Recherche">
 		<input type="hidden" name="a" value="Afficher">
 		<input type="hidden" name="page" value="1">
@@ -26,19 +30,6 @@ echo $A_vue['corps'];
 	</form>
 </section>
 
-<!-- Formulaire de contact-->
-<h1>Contact</h1>
-<form class="cf" action="#" method="post">
-    <div class="moitié-gauche-cf">
-        <input type="text" id="input-nom" placeholder="Prénom Nom">
-        <input type="email" id="input-email" placeholder="Email">
-        <input type="text" id="input-sujet" placeholder="Sujet">
-    </div>
-    <div class="moitié-droite-cf">
-        <textarea name="message" type="text" id="input-message" placeholder="Message"></textarea>
-    </div>
-    <input type="submit" name="action" value="Envoyer" id="input-submit">
-</form>
 
 
 
