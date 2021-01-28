@@ -5,6 +5,9 @@ require 'Modeles/modeleRecherche.php';
 final class ControleurRecherche
 {
 	
+	/*
+		Page ou sont affichés les messages
+	*/
 	public function Afficher()
     {
 		$recherche = new Recherche();
