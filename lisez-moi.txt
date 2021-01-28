@@ -80,5 +80,5 @@ Compte administration : pseudo: Vanestarre, mdp: Vanestarre16
 
 - Hébergement : email : daprato.thomas05@gmail.com, mdp: Vanestarre16
 
-- Système de version : https://github.com/Thomas-DaPrato/php_projet
+- Système de version : https://github.com/Thomas-DaPrato/php_projet (projet public)
 
