@@ -1,4 +1,4 @@
-<div>
+<div class="container_pdg">
     <h1><strong>POLITIQUE DE CONFIDENTIALITÉ DU SITE : VANESTARRE</strong></h1>
     <h3>ARTICLE 1 : PRÉAMBULE</h3>
         <p>
