@@ -155,3 +155,16 @@ footer {
     cursor: pointer;
 }
 
+.image_msg {
+    width : 25% ;
+    height : 25%;
+}
+
+.container_pdg{
+    margin: 4%;
+}
+
+.container_cg{
+    margin: 4%;
+}
+

@@ -20,6 +20,7 @@ class Messages{
 		$this->html .= '            <article class="msg">' . PHP_EOL;
 		$this->html .= '                <p>' . PHP_EOL . '                    '. $msg['texte'] . PHP_EOL . '                </p>' . PHP_EOL . PHP_EOL;
 
+
 		foreach($msg['images'] as $img){
 			$this->html .= '                <img class="image_msg" src="Contenu/Bdd_Images/' . $img .'" alt="image" ><br/><br/>' . PHP_EOL;
 		}

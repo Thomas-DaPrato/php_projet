@@ -1,4 +1,4 @@
-<div>
+<div class="container_cg">
     <h1><strong>CONDITIONS GÉNÉRALES D'UTILISATION DU SITE VANESTARRE</strong></h1>
 
     <h3>ARTICLE 1. INFORMATIONS LÉGALES</h3>
