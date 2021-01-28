@@ -14,12 +14,13 @@ class Messages{
 	public function addMessage($msg){
 		$this->html .= '            <article class="msg">' . PHP_EOL;
 		$this->html .= '                <p>' . PHP_EOL . '                    '. $msg['texte'] . PHP_EOL . '                </p>' . PHP_EOL . PHP_EOL;
-		foreach($msg['tags'] as $tag){
-			$this->html .= '                    <a class="lien_tag" href="index.php?c=Recherche&a=Afficher&tag=' . $tag . '&tri=defaut">&#946;' . $tag . '</a>&ensp;' . PHP_EOL;
-		}
+
 		foreach($msg['images'] as $img){
 			$this->html .= '                <img class="image_msg" src="Contenu/Bdd_Images/' . $img .'" alt="image" ><br/><br/>' . PHP_EOL;
 		}
+        foreach($msg['tags'] as $tag){
+            $this->html .= '                    <a class="lien_tag" href="index.php?c=Recherche&a=Afficher&tag=' . $tag . '&tri=defaut">&#946;' . $tag . '</a>&ensp;' . PHP_EOL . PHP_EOL;
+        }
 		$this->html .= '                <form action="index.php?" method="get">' . PHP_EOL
               . '                   <input type="hidden" name="c" value="Emoji">' . PHP_EOL
               . '                   <input type="hidden" name="a" value="Increment">' .PHP_EOL
