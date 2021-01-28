@@ -28,11 +28,17 @@ body {
     background-color: #ffacac;
     display: flex;
     flex-direction: row;
+
 }
 
 .a_propos {
-    background-color: #63A6DC;
+    background-color: wheat;
+    font-size: 20px;
+    text-align: center;
+    padding: 1%;
+    margin-bottom: 2em;
 }
+
 a {
     text-decoration: none;
     color: black;
@@ -118,3 +124,5 @@ footer {
     position: fixed;
     top : 40%;
 }
+
+
