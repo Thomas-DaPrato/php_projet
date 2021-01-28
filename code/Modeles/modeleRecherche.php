@@ -22,7 +22,9 @@ final class Recherche{
 		}
 	}
 	
-	
+	/*
+		Effectue une recherche par tag dans l'ordre du plus ancien au plus recent puis renvoie le code html généré
+	*/
 	public function triDefaut(){
 		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = :tagg  LIMIT 10 OFFSET :nbmsg';
 		$resultat = $this->bdd->prepare($querry);
@@ -36,14 +38,14 @@ final class Recherche{
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
-			/*while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
-				$messages->addMessage(self::getMessageByID($result['id_msg']));
-			}*/
 			$messages->addMessagesById($resultat->fetchAll(PDO::FETCH_COLUMN, 0));
 		}
 		return $messages->getHTML() . self::getBoutonsPage('defaut');
 	}
 	
+	/*
+		Génére un message (tableau associatif) à partir d'un id
+	*/
 	private function getMessageByID($id){
 		$message = array();
 		$querryMsg = 'select texte from message where id_msg = \'' . $id . '\'';
@@ -61,6 +63,9 @@ final class Recherche{
 		return $message;
 	}
 	
+	/*
+		Effectue une recherche par tag dans l'ordre du plus recent au plus ancien puis renvoie le code html généré
+	*/
 	public function triRecent(){
 
 		$querry = 'SELECT id_msg FROM tag WHERE texte_tag = :tagg ORDER BY id_msg DESC LIMIT 10 OFFSET :nbmsg';
@@ -74,14 +79,14 @@ final class Recherche{
 			'erreur :' . $this->bdd->errorInfo() . '<br/>' . PHP_EOL .
 			'requete : ' . $querry . '<br/>';
 		}else{
-			/*while ($result = $resultat->fetch(PDO::FETCH_ASSOC)) {
-				$messages->addMessage(self::getMessageByID($result['id_msg']));
-			}*/
 			$messages->addMessagesById($resultat->fetchAll(PDO::FETCH_COLUMN, 0));
 		}
 		return $messages->getHTML() . self::getBoutonsPage('recent');
 	}
 	
+	/*
+		Génére un code html contenant des boutons permettant de changé de page
+	*/
 	private function getBoutonsPage($tri){
 		$html = PHP_EOL . '<a class="bouton_page" href="index.php?c=Recherche&a=Afficher&tag=' . $this->tag . '&tri=' . $tri . '&page=1">First</a>' . PHP_EOL;
 		$querry = 'SELECT count(*) FROM tag WHERE texte_tag = :tagg';

@@ -39,8 +39,8 @@ __ Création d’un compte __
 
 - Interface d’inscription et de connexion. 
 - L’utilisateur doit inscrire un pseudo, un mail et un mot de passe (sécurisé avec la fonction de hachage « md5 ») afin de s’inscrire et d’obtenir le rôle « membre »
-- Pour se connecter l’utilisateur doit entrer l’adresse email et le mot de passe utilisés lors de l’inscription 
-- L’utilisateur peut consulter les informations de son compte et à la possibilité de supprimer son compte à tout moment. 
+- Pour se connecter l’utilisateur doit entrer le pseudo et le mot de passe utilisés lors de l’inscription 
+- L’utilisateur a la possibilité de supprimer son compte à tout moment. 
 
 __ Système de rôle (3 trois possibles) __
 
@@ -59,7 +59,12 @@ __ Système de rôle (3 trois possibles) __
 
 Editeur d’utilisé : PHPStrom
 Logiciel d’hébergement du site en local : Laragon, WampServeur 
-Logiciel de base de données : HeididiSQL, PHPMyAdmin 
+Logiciel de base de données : HeididiSQL, PHPMyAdmin
+
+Nous avons suivi le modèle MVC pour apprendre à le maîtriser, et sa modularité facilitant le travail en groupe et la modification du site.
+Pour sécuriser le compte, le choix du md5 a été utilisé pour sa simplicité, et car il n'y a pas besoin d'une sécurité très elevée pour ce site.
+Pour sécuriser la base de données, le système de prepared statements a été utilisé, cependant il n'a pas été implémenté partout ou il est nécessaire par manque de temps. L'inscription et la connexion sont donc sécurisées, mais pas les emojis de réaction, qu'il est possible d'utiliser pour injecter du code sql.
+
 
 ## Configuration logicielle minimale et conseillée :
 

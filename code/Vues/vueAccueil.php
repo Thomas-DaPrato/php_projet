@@ -10,6 +10,7 @@
         <div class="container_msg">
 
 <?php
+
 if (isset($A_vue['corps']))
 {
     echo $A_vue['corps'];
